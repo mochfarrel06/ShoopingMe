@@ -1,10 +1,9 @@
-import NavbarExample from "./components/Layouts/Navbar2";
-import NavbarCoba from "./components/Layouts/NavbarCoba";
+import Navbar from "./components/Layouts/Navbar";
 
 function App() {
   return (
     <>
-      <NavbarExample />
+      <Navbar />
     </>
   );
 }

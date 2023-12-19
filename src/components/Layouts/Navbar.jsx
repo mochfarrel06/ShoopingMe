@@ -2,10 +2,7 @@ import {Fragment} from "react";
 import {Disclosure, Menu, Transition} from "@headlessui/react";
 import {
   Bars3Icon,
-  BellIcon,
-  ChartBarIcon,
   MagnifyingGlassIcon,
-  ShoppingBagIcon,
   ShoppingCartIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
@@ -21,20 +18,20 @@ const navigation = [
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
-export default function NavbarExample() {
+export default function Navbar() {
   return (
-    <Disclosure as="nav" className="bg-white">
+    <Disclosure as="nav" className="bg-white fixed w-full right-0 shadow-md">
       {({open}) => (
         <>
-          <div className="w-full px-2 max-[315px]:px-3 min-[315px]:px-5 sm:px-8 lg:px-16">
-            <div className="relative flex py-6 items-center justify-between gap-5 max-[315px]:py-3 min-[315px]:py-4 lg:py-6">
+          <div className="w-full max-[315px]:px-3 min-[315px]:px-4 sm:px-6 lg:px-16">
+            <div className="relative flex py-6 items-center justify-between gap-5 max-[315px]:py-3 min-[315px]:py-3 lg:py-6">
               {/* Logo */}
               <div className="flex items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  className="w-6 h-6 text-blue-800 max-[315px]:w-5 max-[315px]:h-5"
+                  className="w-6 h-6 text-blue-800 max-[315px]:w-4 max-[315px]:h-4 min-[315px]:w-5 min-[315px]:h-5 lg:h-7 lg:w-7"
                 >
                   <path
                     fillRule="evenodd"
@@ -42,7 +39,7 @@ export default function NavbarExample() {
                     clipRule="evenodd"
                   />
                 </svg>
-                <h1 className="font-bold text-xl text-blue-800 max-[315px]:text-xs min-[315px]:text-sm lg:text-lg">
+                <h1 className="font-bold text-xl text-blue-800 max-[315px]:text-xs min-[315px]:text-sm md:text-lg lg:text-xl">
                   ShoppingMe
                 </h1>
               </div>
@@ -69,10 +66,10 @@ export default function NavbarExample() {
               {/* Search */}
               <label className="relative block">
                 <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                  <MagnifyingGlassIcon className="h-5 w-5 text-slate-700 min-[400px]:h-4 min-[400px]:w-4 max-[400px]:h-3 max-[400px]:w-3" />
+                  <MagnifyingGlassIcon className="h-5 w-5 text-slate-700 max-[315px]:h-3 max-[315px]:w-3 min-[400px]:h-4 min-[400px]:w-4 max-[400px]:h-3 max-[400px]:w-3" />
                 </span>
                 <input
-                  className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 px-10 shadow-sm focus:outline-none focus:border-gray-700 focus:ring-gray-700 focus:ring-1 max-[400px]:py-1 max-[400px]:placeholder:text-xs max-[400px]:px-6 min-[400px]:px-7 min-[400px]:placeholder:text-xs min-[400px]:py-1 sm:text-sm lg:py-2"
+                  className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 px-10 shadow-sm focus:outline-none focus:border-gray-700 focus:ring-gray-700 focus:ring-1 max-[315px]:py-[3px] max-[315px]:placeholder:text-[0.6rem] max-[315px]:text-[0.6rem] min-[315px]:py-[3px] min-[315px]:text-xs max-[400px]:py-1 max-[400px]:placeholder:text-xs max-[400px]:px-6 min-[400px]:px-7 min-[400px]:placeholder:text-xs min-[400px]:py-1 sm:text-sm lg:py-2"
                   placeholder="Search for anything..."
                   type="text"
                   name="search"
@@ -149,16 +146,14 @@ export default function NavbarExample() {
               <div className="inset-y-0 flex items-center lg:hidden">
                 {/* Mobile menu button*/}
                 <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-600  focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                  <span className="absolute -inset-0.5" />
-                  <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XMarkIcon
-                      className="block h-5 w-5 max-[315px]:h-4 max-[315px]:w-4"
+                      className="block h-5 w-5 max-[315px]:h-4 max-[315px]:w-4 min-[315px]:w-4 min-[315px]:h-4"
                       aria-hidden="true"
                     />
                   ) : (
                     <Bars3Icon
-                      className="block h-5 w-5 max-[315px]:h-4 max-[315px]:w-4"
+                      className="block h-5 w-5 max-[315px]:h-4 max-[315px]:w-4 min-[315px]:w-4 min-[315px]:h-4"
                       aria-hidden="true"
                     />
                   )}
@@ -167,8 +162,8 @@ export default function NavbarExample() {
             </div>
           </div>
 
-          <Disclosure.Panel className="lg:hidden">
-            <div className="space-y-1 px-2 pb-3 pt-2">
+          <Disclosure.Panel className="lg:hidden max-[315px]:px-3 max-[315px]:pt-2 min-[315px]:px-5 min-[315px]:pt-2 sm:px-6 lg:px-16">
+            <div className="flex flex-col gap-3">
               {navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}
@@ -176,9 +171,9 @@ export default function NavbarExample() {
                   href={item.href}
                   className={classNames(
                     item.current
-                      ? "bg-gray-900 text-white"
-                      : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                    "block rounded-md px-3 py-2 text-base font-medium"
+                      ? "bg-gray-900 text-white font-medium"
+                      : "text-gray-700 hover:bg-gray-700 font-medium hover:text-white",
+                    "block rounded-md text-base font-medium max-[315px]:text-xs min-[315px]:text-sm"
                   )}
                   aria-current={item.current ? "page" : undefined}
                 >
@@ -186,15 +181,39 @@ export default function NavbarExample() {
                 </Disclosure.Button>
               ))}
             </div>
-            <div className="space-y-1 px-3 pb-3 pt-2">
-              <div className="flex items-center">
-                <div className="relative flex rounded-fulltext-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                  <img
-                    className="h-8 w-8 rounded-full"
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt=""
-                  />
+            <div className="flex flex-col gap-2 max-[315px]:pt-5 min-[315px]:pt-5">
+              <hr className="border-gray-200 rounded-md" />
+              <div className="flex items-center w-full justify-between overflow-hidden">
+                <div className="flex items-center py-2 gap-2">
+                  <div className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                    <UserIcon className="h-10 w-10 text-gray-200 max-[315px]:h-7 max-[315px]:w-7 min-[315px]:h-7 min-[315px]:w-7" />
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-base text-gray-800 tracking-wide max-[315px]:text-xs min-[315px]:text-sm">
+                      Moch Farrel
+                    </h3>
+                    <p className="text-sm text-gray-400 max-[315px]:text-[0.6rem] min-[315px]:text-xs">
+                      mochfarrel@gmail.com
+                    </p>
+                  </div>
                 </div>
+                <div className="flex items-center gap-2 p-2">
+                  <ShoppingCartIcon className="h-5 w-5 text-gray-700 max-[315px]:h-4 max-[315px]:w-4 min-[315px]:h-4 min-[315px]:w-4" />
+                </div>
+              </div>
+              <div className="flex flex-col gap-3 pb-3">
+                <a
+                  href="#"
+                  className="text-gray-700 font-medium text-base max-[315px]:text-xs min-[315px]:text-sm"
+                >
+                  Your Profile
+                </a>
+                <a
+                  href="#"
+                  className="text-gray-700 font-medium text-base max-[315px]:text-xs min-[315px]:text-sm"
+                >
+                  Logout
+                </a>
               </div>
             </div>
           </Disclosure.Panel>
