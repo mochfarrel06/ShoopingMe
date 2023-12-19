@@ -1,0 +1,17 @@
+export function Item({item, classNames, key}) {
+  return (
+    <a
+      key={key}
+      href={item.href}
+      className={classNames(
+        item.current
+          ? "bg-gray-800 text-white"
+          : "text-gray-700 hover:bg-gray-700 hover:text-white",
+        "rounded-md px-3 py-2 text-sm font-medium"
+      )}
+      aria-current={item.current ? "page" : undefined}
+    >
+      {item.name}
+    </a>
+  );
+}
