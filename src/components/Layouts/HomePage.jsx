@@ -95,7 +95,7 @@ export default function HomePage() {
               key={product.id}
               className="group relative shadow-md rounded-md overflow-hidden px-5 py-10"
             >
-              <div className="aspect-h-1 aspect-w-1 overflow-hidden lg:aspect-none group-hover:opacity-75 flex items-center justify-center py-5 lg:h-96">
+              <div className="aspect-h-1 aspect-w-1 overflow-hidden lg:aspect-none group-hover:opacity-75 flex items-center justify-center py-5">
                 <img
                   src={product.imageSrc}
                   alt={product.imageAlt}
