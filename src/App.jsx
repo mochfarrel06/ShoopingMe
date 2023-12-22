@@ -1,10 +1,11 @@
 import {Route, Routes} from "react-router-dom";
 import Navbar from "./components/Layouts/Navbar";
 import Footer from "./components/Layouts/Footer";
-import HomePage from "./components/Layouts/HomePage";
+
 import LoginPage from "./pages/login";
 import RegisterPage from "./pages/register";
 import ManClothing from "./components/Layouts/Man";
+import HomePage from "./pages/home";
 
 function App() {
   return (

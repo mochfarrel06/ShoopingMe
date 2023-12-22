@@ -170,7 +170,7 @@ export default function HomePage() {
     <div className="px-6 py-14 lg:px-8">
       <div className="mx-auto max-w-6xl py-60 max-[400px]:py-36 lg:py-64">
         {/* Start Hero Section*/}
-        <div className="">
+        <div className="w-full">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
             <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
               Shop more easily, quickly, securely and best-selling transactions
