@@ -58,7 +58,7 @@ const products = [
   // More products...
 ];
 
-export default function Man() {
+export default function ManClothing() {
   return (
     <div className="px-6 py-14 lg:px-8">
       {/* Start product section */}

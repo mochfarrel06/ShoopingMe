@@ -1,17 +1,22 @@
-import DetailCoba from "./components/Layouts/DetailCoba";
-import DetailPage from "./components/Layouts/DetailPage";
+import {Route, Routes} from "react-router-dom";
+import Navbar from "./components/Layouts/Navbar";
+import Footer from "./components/Layouts/Footer";
 import HomePage from "./components/Layouts/HomePage";
-import Man from "./components/Layouts/Man";
-import NavbarLogin from "./components/Layouts/NavbarLogin";
-import ProfileCoba from "./components/Layouts/ProfileCoba";
+import LoginPage from "./pages/login";
+import RegisterPage from "./pages/register";
+import ManClothing from "./components/Layouts/Man";
 
 function App() {
   return (
     <>
-      <NavbarLogin />
-      <main>
-        <ProfileCoba />
-      </main>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/man-clothing" element={<ManClothing />} />
+      </Routes>
+      <Footer />
     </>
   );
 }
