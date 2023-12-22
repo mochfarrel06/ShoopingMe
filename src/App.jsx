@@ -10,6 +10,8 @@ import JeweleryPage from "./pages/jewelery";
 import ElectronicsPage from "./pages/electronics";
 import DetailCoba from "./components/Layouts/DetailCoba";
 import ProfileCoba from "./components/Layouts/ProfileCoba";
+import ProfileSection from "./components/Fragments/ProfileSection";
+import ProfilePage from "./pages/profile";
 
 function App() {
   return (
@@ -23,7 +25,7 @@ function App() {
         <Route path="/woman-clothing" element={<WomanPage />} />
         <Route path="/jewelery" element={<JeweleryPage />} />
         <Route path="/electronics" element={<ElectronicsPage />} />
-        <Route path="/detail" element={<ProfileCoba />} />
+        <Route path="/detail" element={<ProfilePage />} />
       </Routes>
       <Footer />
     </>
