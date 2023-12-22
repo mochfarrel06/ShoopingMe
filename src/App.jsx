@@ -6,6 +6,7 @@ import LoginPage from "./pages/login";
 import RegisterPage from "./pages/register";
 import ManClothing from "./components/Layouts/Man";
 import HomePage from "./pages/home";
+import ManPage from "./pages/man-clothing";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
-        <Route path="/man-clothing" element={<ManClothing />} />
+        <Route path="/man-clothing" element={<ManPage />} />
       </Routes>
       <Footer />
     </>

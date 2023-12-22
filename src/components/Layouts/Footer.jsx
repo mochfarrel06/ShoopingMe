@@ -2,17 +2,17 @@ import {ShoppingBagIcon} from "@heroicons/react/20/solid";
 
 export default function Footer() {
   return (
-    <div className="sm:px-6 md:px-8 lg:px-4 xl:px-0">
-      <div className="mx-auto max-w-2xl bg-white pt-32 pb-5 sm:py-10 lg:max-w-7xl">
+    <div className="mx-auto max-w-7xl lg:w-full">
+      <div className="px-4 pb-10 sm:px-6 md:px-8 lg:px-10 xl:px-0">
         <div className="py-10 flex flex-col gap-10 lg:flex-row lg:gap-20">
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-0.5 max-[400px]:gap-0">
-              <ShoppingBagIcon className="h-4 w-4 text-blue-900 max-[400px]:h-5 max-[400px]:w-5 lg:w-7 lg:h-7 xl:h-8 xl:w-8" />
-              <h4 className="font-bold text-base text-blue-900 tracking-wide max-[400px]:text-base md:text-xl xl:text-2xl">
+              <ShoppingBagIcon className="h-4 w-4 text-blue-900 max-[400px]:h-5 max-[400px]:w-5 lg:w-6 lg:h-6" />
+              <h4 className="font-bold text-base text-blue-900 tracking-wide max-[400px]:text-base md:text-xl">
                 ShoppingMe
               </h4>
             </div>
-            <p className="text-gray-500 text-sm tracking-wide font-light lg:w-3/4">
+            <p className="text-gray-500 text-sm tracking-wide font-normal lg:w-3/4">
               Find the convenience of shopping for your favorite items quickly
               and safely in our online shop.
             </p>
