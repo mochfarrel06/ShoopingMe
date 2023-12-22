@@ -53,7 +53,7 @@ const products = [
   // More products...
 ];
 
-export default function ManSection() {
+export default function WomanSection() {
   return (
     <div className="py-24 max-[400px]:py-20 sm:py-28 lg:py-28">
       {/* Start product section */}
