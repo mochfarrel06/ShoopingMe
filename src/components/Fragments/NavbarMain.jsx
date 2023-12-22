@@ -8,10 +8,10 @@ import {
 } from "@heroicons/react/20/solid";
 import {Fragment} from "react";
 
-export function NavbarMain({children}) {
+export default function NavbarMain({children}) {
   return (
-    <div className="mx-auto max-w-7xl">
-      <div className="h-24 flex items-center px-4 max-[400px]:h-20 sm:px-6 md:px-8 lg:px-10">
+    <div className="mx-auto max-w-7xl lg:w-full">
+      <div className="h-24 flex items-center px-4 max-[400px]:h-20 sm:px-6 md:px-8 lg:px-4 xl:px-0">
         <div className="w-full flex item-center justify-between gap-5 max-[400px]:gap-4">
           {children}
         </div>
@@ -72,59 +72,69 @@ function NavbarSearch() {
   );
 }
 
-function NavbarProfile({user, userNavigation, classNames}) {
+function NavbarProfile({user, userNavigation, classNames, isLoggedIn}) {
   return (
     <div className="hidden lg:block">
       <div className="flex items-center h-full gap-4">
-        <button
-          type="button"
-          className="relative rounded-full bg-white p-1 text-gray-900 hover:text-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800"
-        >
-          <span className="absolute -inset-1.5" />
-          <span className="sr-only">View cart</span>
-          <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
-        </button>
-
-        <Menu as="div" className="relative">
-          <div>
-            <Menu.Button className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+        {isLoggedIn ? (
+          <>
+            <button
+              type="button"
+              className="relative rounded-full bg-white p-1 text-gray-900 hover:text-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800"
+            >
               <span className="absolute -inset-1.5" />
-              <span className="sr-only">Open user menu</span>
-              <img
-                className="h-8 w-8 rounded-full xl:h-10 xl:w-10"
-                src={user.imageUrl}
-                alt=""
-              />
-            </Menu.Button>
-          </div>
-          <Transition
-            as={Fragment}
-            enter="transition ease-out duration-100"
-            enterFrom="transform opacity-0 scale-95"
-            enterTo="transform opacity-100 scale-100"
-            leave="transition ease-in duration-75"
-            leaveFrom="transform opacity-100 scale-100"
-            leaveTo="transform opacity-0 scale-95"
-          >
-            <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none lg:w-56 lg:py-3">
-              {userNavigation.map((item) => (
-                <Menu.Item key={item.name}>
-                  {({active}) => (
-                    <a
-                      href={item.href}
-                      className={classNames(
-                        active ? "bg-gray-100" : "",
-                        "block px-4 py-2 text-sm text-gray-700 lg:text-base"
+              <span className="sr-only">View cart</span>
+              <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
+            </button>
+
+            <Menu as="div" className="relative">
+              <div>
+                <Menu.Button className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                  <span className="absolute -inset-1.5" />
+                  <span className="sr-only">Open user menu</span>
+                  <img
+                    className="h-8 w-8 rounded-full xl:h-10 xl:w-10"
+                    src={user.imageUrl}
+                    alt=""
+                  />
+                </Menu.Button>
+              </div>
+              <Transition
+                as={Fragment}
+                enter="transition ease-out duration-100"
+                enterFrom="transform opacity-0 scale-95"
+                enterTo="transform opacity-100 scale-100"
+                leave="transition ease-in duration-75"
+                leaveFrom="transform opacity-100 scale-100"
+                leaveTo="transform opacity-0 scale-95"
+              >
+                <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none lg:w-56 lg:py-3">
+                  {userNavigation.map((item) => (
+                    <Menu.Item key={item.name}>
+                      {({active}) => (
+                        <a
+                          href={item.href}
+                          className={classNames(
+                            active ? "bg-gray-100" : "",
+                            "block px-4 py-2 text-sm text-gray-700 lg:text-base"
+                          )}
+                        >
+                          {item.name}
+                        </a>
                       )}
-                    >
-                      {item.name}
-                    </a>
-                  )}
-                </Menu.Item>
-              ))}
-            </Menu.Items>
-          </Transition>
-        </Menu>
+                    </Menu.Item>
+                  ))}
+                </Menu.Items>
+              </Transition>
+            </Menu>
+          </>
+        ) : (
+          <>
+            <button className="block bg-blue-800 px-4 py-2 rounded font-medium text-lg text-white hover:bg-blue-700 transition-all ease-in-out duration-200">
+              Sign Up
+            </button>
+          </>
+        )}
       </div>
     </div>
   );
