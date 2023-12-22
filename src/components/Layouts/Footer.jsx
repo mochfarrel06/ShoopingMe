@@ -2,8 +2,8 @@ import {ShoppingBagIcon} from "@heroicons/react/20/solid";
 
 export default function Footer() {
   return (
-    <div className="px-6 py-14 lg:px-8">
-      <div className="mx-auto max-w-2xl bg-white pt-32 pb-5 sm:px-6 sm:py-10 lg:max-w-7xl lg:px-8">
+    <div className="sm:px-6 md:px-8 lg:px-4 xl:px-0">
+      <div className="mx-auto max-w-2xl bg-white pt-32 pb-5 sm:py-10 lg:max-w-7xl">
         <div className="py-10 flex flex-col gap-10 lg:flex-row lg:gap-20">
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-0.5 max-[400px]:gap-0">
