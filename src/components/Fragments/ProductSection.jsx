@@ -48,7 +48,7 @@ const products = [
 
 export default function ProductSection() {
   return (
-    <div className="py-60 max-[400px]:py-36 lg:py-64">
+    <div className="py-20 max-[400px]:py-10 sm:py-24 md:py-32 lg:py-36">
       <div className="mx-auto max-w-2xl lg:max-w-7xl">
         <h2 className="text-xl font-bold tracking-tight text-gray-600 max-[400px]:text-lg md:text-2xl lg:text-3xl">
           Our product choices for you
