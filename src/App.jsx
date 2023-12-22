@@ -1,13 +1,15 @@
 import {Route, Routes} from "react-router-dom";
 import Navbar from "./components/Layouts/Navbar";
 import Footer from "./components/Layouts/Footer";
-
 import LoginPage from "./pages/login";
 import RegisterPage from "./pages/register";
-import ManClothing from "./components/Layouts/Man";
 import HomePage from "./pages/home";
 import ManPage from "./pages/man-clothing";
 import WomanPage from "./pages/woman-clothing";
+import JeweleryPage from "./pages/jewelery";
+import ElectronicsPage from "./pages/electronics";
+import DetailCoba from "./components/Layouts/DetailCoba";
+import ProfileCoba from "./components/Layouts/ProfileCoba";
 
 function App() {
   return (
@@ -19,6 +21,9 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/man-clothing" element={<ManPage />} />
         <Route path="/woman-clothing" element={<WomanPage />} />
+        <Route path="/jewelery" element={<JeweleryPage />} />
+        <Route path="/electronics" element={<ElectronicsPage />} />
+        <Route path="/detail" element={<ProfileCoba />} />
       </Routes>
       <Footer />
     </>
