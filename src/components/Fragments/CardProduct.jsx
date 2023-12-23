@@ -8,19 +8,19 @@ export default function CardProduct({children}) {
   );
 }
 
-function CardImage({imageSrc, imageAlt}) {
+function CardImage({image, title}) {
   return (
     <div className="aspect-h-1 aspect-w-1 overflow-hidden lg:aspect-none group-hover:opacity-75 flex items-center justify-center py-5">
       <img
-        src={imageSrc}
-        alt={imageAlt}
+        src={image}
+        alt={title}
         className="w-1/2 h-1/2 object-center lg:h-3/4 lg:w-3/4"
       />
     </div>
   );
 }
 
-function CardBody({name, price, rating, btnTitle}) {
+function CardBody({title, price, rate, btnTitle}) {
   return (
     <div className="mt-4 flex flex-col w-full gap-4">
       <div className="flex gap-10">
@@ -28,10 +28,10 @@ function CardBody({name, price, rating, btnTitle}) {
           href="#"
           className="text-lg font-medium truncate text-gray-700 max-[400px]:text-base"
         >
-          {name}
+          {title}
         </a>
         <div className="flex items-center gap-2">
-          <p className="text-gray-700 font-normal text-sm">{rating}</p>
+          <p className="text-gray-700 font-normal text-sm">{rate}</p>
           <StarIcon className="h-4 w-4 text-yellow-400" />
         </div>
       </div>
