@@ -19,7 +19,7 @@ const navigation = [
 
 const userNavigation = [
   {name: "Your Profile", to: "/profile"},
-  {name: "Sign out", to: "/"},
+  {name: "Sign out", to: ""},
 ];
 
 function classNames(...clasess) {
@@ -27,6 +27,12 @@ function classNames(...clasess) {
 }
 
 export default function Navbar() {
+  const handleLogout = () => {
+    localStorage.removeItem("email");
+    localStorage.removeItem("password");
+    window.location.href = "/";
+  };
+
   return (
     <div className="min-h-full">
       <Disclosure
@@ -44,8 +50,8 @@ export default function Navbar() {
               <NavbarMain.NavbarSearch />
               <NavbarMain.NavbarProfile
                 user={user}
-                userNavigation={userNavigation}
                 classNames={classNames}
+                onClick={handleLogout}
               />
               <NavbarMain.NavbarMenu open={open} />
             </NavbarMain>

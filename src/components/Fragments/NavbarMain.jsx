@@ -73,7 +73,7 @@ function NavbarSearch() {
   );
 }
 
-function NavbarProfile({user, userNavigation, classNames}) {
+function NavbarProfile({user, classNames, onClick}) {
   return (
     <div className="hidden lg:block">
       <div className="flex items-center h-full gap-4">
@@ -171,7 +171,7 @@ function NavbarProfile({user, userNavigation, classNames}) {
               leaveTo="transform opacity-0 scale-95"
             >
               <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none lg:w-56 lg:py-3">
-                {userNavigation.map((item) => (
+                {/* {userNavigation.map((item) => (
                   <Menu.Item key={item.name}>
                     {({active}) => (
                       <Link
@@ -185,7 +185,33 @@ function NavbarProfile({user, userNavigation, classNames}) {
                       </Link>
                     )}
                   </Menu.Item>
-                ))}
+                ))} */}
+                <Menu.Item>
+                  {({active}) => (
+                    <Link
+                      to="/profile"
+                      className={classNames(
+                        active ? "bg-gray-100" : "",
+                        "block px-4 py-2 text-sm text-gray-700 lg:text-base"
+                      )}
+                    >
+                      Profile Me
+                    </Link>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({active}) => (
+                    <a
+                      onClick={onClick}
+                      className={classNames(
+                        active ? "bg-gray-100" : "",
+                        "block px-4 py-2 text-sm text-gray-700 lg:text-base"
+                      )}
+                    >
+                      Logout
+                    </a>
+                  )}
+                </Menu.Item>
               </Menu.Items>
             </Transition>
           </Menu>
