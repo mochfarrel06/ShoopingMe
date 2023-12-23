@@ -11,18 +11,7 @@ export default function AuthLayouts({children, title, description}) {
           </p>
         </div>
 
-        <div className="flex flex-col gap-8">
-          {children}
-          {/* <p className="text-center text-sm text-gray-600 max-[315px]:text-xs lg:text-base">
-          Don't have account?{" "}
-          <a
-            href="#"
-            className="text-sm font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
-          >
-            Sign Up
-          </a>
-        </p> */}
-        </div>
+        <div className="flex flex-col gap-8">{children}</div>
       </div>
     </div>
   );
