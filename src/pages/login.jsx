@@ -14,7 +14,7 @@ export default function LoginPage() {
       >
         <FormLogin />
         <p className="text-center text-sm text-gray-600 max-[315px]:text-xs lg:text-base">
-          Don't have account?
+          Don't have account?{" "}
           <Link
             to="/register"
             className="text-sm font-semibold leading-6 text-indigo-600 hover:text-indigo-500"

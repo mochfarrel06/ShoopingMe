@@ -7,6 +7,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/20/solid";
 import {Fragment} from "react";
+import {Link} from "react-router-dom";
 
 export default function NavbarMain({children}) {
   return (
@@ -24,9 +25,12 @@ function NavbarTitle({title}) {
   return (
     <div className="flex items-center gap-0.5 max-[400px]:gap-0">
       <ShoppingBagIcon className="h-6 w-6 text-blue-900 max-[400px]:h-5 max-[400px]:w-5 lg:w-7 lg:h-7 xl:h-8 xl:w-8" />
-      <h1 className="font-bold text-lg text-blue-900 tracking-wide max-[400px]:text-base md:text-xl xl:text-2xl">
+      <Link
+        to="/"
+        className="font-bold text-lg text-blue-900 tracking-wide max-[400px]:text-base md:text-xl xl:text-2xl"
+      >
         {title}
-      </h1>
+      </Link>
     </div>
   );
 }
@@ -36,9 +40,9 @@ function NavbarNavigation({navigation, classNames}) {
     <div className="hidden lg:block">
       <div className="flex items-baseline space-x-4">
         {navigation.map((item) => (
-          <a
+          <Link
             key={item.name}
-            href={item.href}
+            to={item.to}
             className={classNames(
               item.current
                 ? "bg-gray-900 text-white"
@@ -48,7 +52,7 @@ function NavbarNavigation({navigation, classNames}) {
             aria-current={item.current ? "page" : undefined}
           >
             {item.name}
-          </a>
+          </Link>
         ))}
       </div>
     </div>
@@ -130,9 +134,12 @@ function NavbarProfile({user, userNavigation, classNames, isLoggedIn}) {
           </>
         ) : (
           <>
-            <button className="block bg-blue-800 px-4 py-2 rounded font-medium text-lg text-white hover:bg-blue-700 transition-all ease-in-out duration-200">
+            <Link
+              to="/register"
+              className="block bg-blue-800 px-4 py-2 rounded font-medium text-lg text-white hover:bg-blue-700 transition-all ease-in-out duration-200"
+            >
               Sign Up
-            </button>
+            </Link>
           </>
         )}
       </div>

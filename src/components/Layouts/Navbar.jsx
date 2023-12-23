@@ -11,10 +11,10 @@ const user = {
 };
 
 const navigation = [
-  {name: "Men", href: "#", current: false},
-  {name: "Women", href: "#", current: false},
-  {name: "Jewelery", href: "#", current: false},
-  {name: "Electronics", href: "#", current: false},
+  {name: "Men", to: "/man-clothing", current: false},
+  {name: "Women", to: "/woman-clothing", current: false},
+  {name: "Jewelery", to: "/jewelery", current: false},
+  {name: "Electronics", to: "/electronics", current: false},
 ];
 
 const userNavigation = [
