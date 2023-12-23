@@ -43,14 +43,14 @@ export default function ProfileSection() {
                 </label>
                 <label className="block">
                   <span className="block text-base font-medium text-slate-700 max-[400px]:text-sm">
-                    Name
+                    Username
                   </span>
                   <div className="mt-2 flex gap-5 max-[400px]:flex-col max-[400px]:gap-2">
                     <input
                       type="text"
                       name="text"
                       className="px-5 py-2 bg-white border text-gray-500 shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-blue-500 block w-full rounded-md sm:text-sm focus:ring-1 max-[400px]:text-sm"
-                      value="John Doe"
+                      value="johnd"
                       disabled
                     />
                     <button className="px-4 py-2 w-20 bg-gray-600 text-white text-sm font-medium rounded-md lg:px-6 lg:w-24">
@@ -60,14 +60,14 @@ export default function ProfileSection() {
                 </label>
                 <label className="block">
                   <span className="block text-base font-medium text-slate-700 max-[400px]:text-sm">
-                    Name
+                    Address
                   </span>
                   <div className="mt-2 flex gap-5 max-[400px]:flex-col max-[400px]:gap-2">
                     <input
                       type="text"
                       name="text"
                       className="px-5 py-2 bg-white border text-gray-500 shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-blue-500 block w-full rounded-md sm:text-sm focus:ring-1 max-[400px]:text-sm"
-                      value="John Doe"
+                      value="kilcoole, new road, 7682, 12926-3874"
                       disabled
                     />
                     <button className="px-4 py-2 w-20 bg-gray-600 text-white text-sm font-medium rounded-md lg:px-6 lg:w-24">
@@ -77,14 +77,14 @@ export default function ProfileSection() {
                 </label>
                 <label className="block">
                   <span className="block text-base font-medium text-slate-700 max-[400px]:text-sm">
-                    Name
+                    Email
                   </span>
                   <div className="mt-2 flex gap-5 max-[400px]:flex-col max-[400px]:gap-2">
                     <input
-                      type="text"
-                      name="text"
+                      type="email"
+                      name="email"
                       className="px-5 py-2 bg-white border text-gray-500 shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-blue-500 block w-full rounded-md sm:text-sm focus:ring-1 max-[400px]:text-sm"
-                      value="John Doe"
+                      value="john@gmail.com"
                       disabled
                     />
                     <button className="px-4 py-2 w-20 bg-gray-600 text-white text-sm font-medium rounded-md lg:px-6 lg:w-24">
@@ -94,14 +94,14 @@ export default function ProfileSection() {
                 </label>
                 <label className="block">
                   <span className="block text-base font-medium text-slate-700 max-[400px]:text-sm">
-                    Name
+                    Phone
                   </span>
                   <div className="mt-2 flex gap-5 max-[400px]:flex-col max-[400px]:gap-2">
                     <input
                       type="text"
                       name="text"
                       className="px-5 py-2 bg-white border text-gray-500 shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-blue-500 block w-full rounded-md sm:text-sm focus:ring-1 max-[400px]:text-sm"
-                      value="John Doe"
+                      value="1-570-236-7033"
                       disabled
                     />
                     <button className="px-4 py-2 w-20 bg-gray-600 text-white text-sm font-medium rounded-md lg:px-6 lg:w-24">
