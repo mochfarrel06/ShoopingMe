@@ -2,8 +2,15 @@ import Button from "../Elements/Button";
 import InputForm from "../Elements/Input";
 
 export default function FormLogin() {
+  const handleLogin = (e) => {
+    e.preventDefault();
+    localStorage.setItem("email", e.target.email.value);
+    localStorage.setItem("password", e.target.password.value);
+    window.location.href = "/";
+  };
+
   return (
-    <form className="flex flex-col gap-6" action="#" method="POST">
+    <form onSubmit={handleLogin} className="flex flex-col gap-6">
       <InputForm
         label={"Email"}
         type="email"
@@ -16,7 +23,7 @@ export default function FormLogin() {
         name="password"
         placeholder="******"
       />
-      <Button>Login</Button>
+      <Button type="submit">Login</Button>
     </form>
   );
 }

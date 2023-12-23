@@ -18,8 +18,8 @@ const navigation = [
 ];
 
 const userNavigation = [
-  {name: "Your Profile", href: "#"},
-  {name: "Sign out", href: "#"},
+  {name: "Your Profile", to: "/profile"},
+  {name: "Sign out", to: "/"},
 ];
 
 function classNames(...clasess) {
@@ -27,7 +27,6 @@ function classNames(...clasess) {
 }
 
 export default function Navbar() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <div className="min-h-full">
       <Disclosure
@@ -47,7 +46,6 @@ export default function Navbar() {
                 user={user}
                 userNavigation={userNavigation}
                 classNames={classNames}
-                isLoggedIn={isLoggedIn}
               />
               <NavbarMain.NavbarMenu open={open} />
             </NavbarMain>
