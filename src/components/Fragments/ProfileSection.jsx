@@ -4,7 +4,7 @@ export default function ProfileSection() {
   return (
     <div className="py-24 max-[400px]:py-20 sm:py-28 lg:py-28">
       <div className="mx-auto max-w-2xl lg:max-w-7xl">
-        <div className="flex flex-col gap-10 lg:gap-20">
+        <div className="flex flex-col gap-10 lg:gap-16">
           <div>
             <h1 className="font-bold text-3xl tracking-wide text-gray-700 max-[400px]:text-2xl lg:text-4xl">
               Profile
