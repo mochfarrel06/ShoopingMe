@@ -37,7 +37,11 @@ function CardBody({title, price, rate}) {
       </div>
       <div className="">
         <p className="text-gray-700 text-xl font-semibold max-[400px]:text-lg">
-          $ {price}
+          ${" "}
+          {price.toLocaleString("id-ID", {
+            styles: "currency",
+            currency: "USD",
+          })}
         </p>
       </div>
     </div>
