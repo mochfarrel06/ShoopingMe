@@ -1,4 +1,4 @@
-import {Fragment, useEffect, useState} from "react";
+import {Fragment, useEffect, useRef, useState} from "react";
 import {Menu, Transition} from "@headlessui/react";
 import {ChevronDownIcon} from "@heroicons/react/20/solid";
 import CardProduct from "./CardProduct";
@@ -67,6 +67,8 @@ export default function ManSection() {
   const [cart, setCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
 
+  // Penggunaan useEffect
+
   useEffect(() => {
     setCart(JSON.parse(localStorage.getItem("cart")) || []);
   }, []);
@@ -99,6 +101,17 @@ export default function ManSection() {
       ]);
     }
   };
+
+  // Penggunaan useRef
+  const totalPriceRef = useRef(null);
+
+  useEffect(() => {
+    if (cart.length > 0) {
+      totalPriceRef.current.style.display = "table-row";
+    } else {
+      totalPriceRef.current.style.display = "none";
+    }
+  }, [cart]);
 
   return (
     <div className="py-24 max-[400px]:py-20 sm:py-28 lg:py-28">
@@ -259,7 +272,7 @@ export default function ManSection() {
                   </tr>
                 );
               })}
-              <tr>
+              <tr ref={totalPriceRef}>
                 <td colSpan={3} className="border border-gray-300 py-2 px-4">
                   <b>Total Price</b>
                 </td>
