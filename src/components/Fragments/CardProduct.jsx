@@ -10,17 +10,17 @@ export default function CardProduct({children}) {
 
 function CardImage({image, title}) {
   return (
-    <div className="aspect-h-1 aspect-w-1 overflow-hidden lg:aspect-none group-hover:opacity-75 flex items-center justify-center py-5">
+    <div className="group-hover:opacity-75 flex items-center justify-center h-96 max-[400px]:h-72">
       <img
         src={image}
         alt={title}
-        className="w-1/2 h-1/2 object-center lg:h-3/4 lg:w-3/4"
+        className="w-52 object-center max-[400px]:w-36"
       />
     </div>
   );
 }
 
-function CardBody({title, price, rate, btnTitle}) {
+function CardBody({title, price, rate}) {
   return (
     <div className="mt-4 flex flex-col w-full gap-4">
       <div className="flex gap-10">
@@ -37,18 +37,24 @@ function CardBody({title, price, rate, btnTitle}) {
       </div>
       <div className="">
         <p className="text-gray-700 text-xl font-semibold max-[400px]:text-lg">
-          {price}
+          $ {price}
         </p>
       </div>
-      <button
-        type="submit"
-        className="flex w-full justify-center rounded-md bg-white px-3 py-1.5 text-sm border-2 font-semibold leading-6 text-gray-700 shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 max-[315px]:text-xs lg:text-base lg:py-2"
-      >
-        {btnTitle}
-      </button>
     </div>
+  );
+}
+
+function CardFooter({children, id, handleAddToCart}) {
+  return (
+    <button
+      onClick={() => handleAddToCart(id)}
+      className="mt-10 flex w-full justify-center rounded-md bg-white px-3 py-1.5 text-sm border-2 font-semibold leading-6 text-gray-700 shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 max-[315px]:text-xs lg:text-base lg:py-2"
+    >
+      {children}
+    </button>
   );
 }
 
 CardProduct.CardImage = CardImage;
 CardProduct.CardBody = CardBody;
+CardProduct.CardFooter = CardFooter;

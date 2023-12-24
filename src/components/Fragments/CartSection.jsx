@@ -1,60 +1,5 @@
 import {MinusIcon, PlusIcon, TrashIcon} from "@heroicons/react/20/solid";
 
-const products = [
-  {
-    id: 1,
-    title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-    price: "$109.95",
-    description:
-      "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-    category: "men's clothing",
-    image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-    rating: {
-      rate: 3.9,
-      count: 120,
-    },
-  },
-  {
-    id: 2,
-    title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-    price: "$109.95",
-    description:
-      "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-    category: "men's clothing",
-    image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-    rating: {
-      rate: 3.9,
-      count: 120,
-    },
-  },
-  {
-    id: 3,
-    title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-    price: "$109.95",
-    description:
-      "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-    category: "men's clothing",
-    image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-    rating: {
-      rate: 3.9,
-      count: 120,
-    },
-  },
-  {
-    id: 4,
-    title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-    price: "$109.95",
-    description:
-      "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-    category: "men's clothing",
-    image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-    rating: {
-      rate: 3.9,
-      count: 120,
-    },
-  },
-];
-
 export default function CartSection() {
   return (
     <div className="py-24 max-[400px]:py-20 sm:py-28 lg:py-28">
@@ -67,7 +12,7 @@ export default function CartSection() {
             {/* Product cart */}
             <div className="divide-y divide-gray-200 mb-10">
               {/* Product 1 */}
-              {products.map((item) => (
+              {cart.map((item) => (
                 <div
                   key={item.id}
                   className="flex gap-5 items-center px-2 py-4 max-[400px]:items-start lg:gap-10"
@@ -92,7 +37,7 @@ export default function CartSection() {
                       </h4>
                       <div className="flex flex-col gap-4">
                         <h3 className="text-base font-medium text-gray-800 max-[400px]:text-sm lg:text-lg">
-                          {item.price}
+                          $ {item.price}
                         </h3>
                         <div className="flex items-center gap-5 max-[400px]:gap-3">
                           <button className="py-2">
