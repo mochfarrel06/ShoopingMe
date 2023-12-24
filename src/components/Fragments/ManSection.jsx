@@ -1,4 +1,4 @@
-import {Fragment, useState} from "react";
+import {Fragment, useEffect, useState} from "react";
 import {Menu, Transition} from "@headlessui/react";
 import {ChevronDownIcon} from "@heroicons/react/20/solid";
 import CardProduct from "./CardProduct";
@@ -64,12 +64,23 @@ const products = [
 ];
 
 export default function ManSection() {
-  const [cart, setCart] = useState([
-    {
-      id: 1,
-      qty: 1,
-    },
-  ]);
+  const [cart, setCart] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  useEffect(() => {
+    setCart(JSON.parse(localStorage.getItem("cart")) || []);
+  }, []);
+
+  useEffect(() => {
+    if (cart.length > 0) {
+      const sum = cart.reduce((acc, item) => {
+        const product = products.find((product) => product.id === item.id);
+        return acc + product.price * item.qty;
+      }, 0);
+      setTotalPrice(sum);
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  }, [cart]);
 
   const handleAddToCart = (id) => {
     if (cart.find((item) => item.id === id)) {
@@ -248,6 +259,14 @@ export default function ManSection() {
                   </tr>
                 );
               })}
+              <tr>
+                <td colSpan={3} className="border border-gray-300 py-2 px-4">
+                  <b>Total Price</b>
+                </td>
+                <td className="border border-gray-300 py-2 px-4">
+                  <b>$ {totalPrice}</b>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
