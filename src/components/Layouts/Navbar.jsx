@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Disclosure} from "@headlessui/react";
 import NavbarMain from "../Fragments/NavbarMain";
 import NavbarMobile from "../Fragments/NavbarMobile";
@@ -27,6 +27,13 @@ function classNames(...clasess) {
 }
 
 export default function Navbar() {
+  const [email, setEmail] = useState({});
+
+  useEffect(() => {
+    const emailString = localStorage.getItem("email");
+    setEmail(emailString);
+  }, []);
+
   const handleLogout = () => {
     localStorage.removeItem("email");
     localStorage.removeItem("password");
@@ -52,6 +59,7 @@ export default function Navbar() {
                 user={user}
                 classNames={classNames}
                 onClick={handleLogout}
+                email={email}
               />
               <NavbarMain.NavbarMenu open={open} />
             </NavbarMain>
