@@ -51,7 +51,7 @@ function CardBody({title, price, rate, id}) {
   );
 }
 
-function CardFooter({children, id, handleAddToCart}) {
+function CardFooter({children, id}) {
   const dispatch = useDispatch();
   return (
     <button
