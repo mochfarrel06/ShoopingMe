@@ -1,14 +1,10 @@
 import {UserIcon} from "@heroicons/react/20/solid";
 import {useEffect, useState} from "react";
 import {getUsername} from "../../services/auth.service";
+import {useLogin} from "../../hooks/useLogin";
 
 export default function ProfileSection() {
-  const [username, setUsername] = useState("");
-
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    setUsername(getUsername(token));
-  }, []);
+  const username = useLogin();
 
   return (
     <div className="py-24 max-[400px]:py-20 sm:py-28 lg:py-28">
