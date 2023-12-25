@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import {Disclosure} from "@headlessui/react";
 import NavbarMain from "../Fragments/NavbarMain";
 import NavbarMobile from "../Fragments/NavbarMobile";
+import {useSelector} from "react-redux";
 
 const user = {
   name: "Tom Cook",
@@ -28,11 +29,20 @@ function classNames(...clasess) {
 
 export default function Navbar() {
   const [username, setUsername] = useState({});
+  const [totalCart, setTotalCart] = useState(0);
+  const cart = useSelector((state) => state.cart.data);
 
   useEffect(() => {
     const usernameString = localStorage.getItem("token");
     setUsername(usernameString);
   }, []);
+
+  useEffect(() => {
+    const sum = cart.reduce((acc, item) => {
+      return acc + item.qty;
+    }, 0);
+    setTotalCart(sum);
+  }, [cart]);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -59,6 +69,7 @@ export default function Navbar() {
                 classNames={classNames}
                 onClick={handleLogout}
                 username={username}
+                totalCart={totalCart}
               />
               <NavbarMain.NavbarMenu open={open} />
             </NavbarMain>

@@ -73,20 +73,18 @@ function NavbarSearch() {
   );
 }
 
-function NavbarProfile({user, classNames, onClick, username}) {
+function NavbarProfile({user, classNames, onClick, username, totalCart}) {
   return (
     <div className="hidden lg:block">
       <div className="flex items-center h-full gap-4">
         {username ? (
           <>
-            <Link
-              to="/cart"
-              className="relative rounded-full bg-white p-1 text-gray-900 hover:text-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800"
-            >
-              <span className="absolute -inset-1.5" />
-              <span className="sr-only">View cart</span>
+            <a className="relative rounded-full bg-white p-1 text-gray-900 hover:text-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800">
+              <span className="absolute bg-orange-600 w-5 h-5 rounded-full right-0 top-0 text-center text-xs text-white font-medium flex items-center justify-center">
+                {totalCart}
+              </span>
               <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
-            </Link>
+            </a>
 
             <Menu as="div" className="relative">
               <div>

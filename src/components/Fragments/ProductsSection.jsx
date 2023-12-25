@@ -4,6 +4,7 @@ import {ChevronDownIcon} from "@heroicons/react/20/solid";
 import CardProduct from "./CardProduct";
 import {getProducts} from "../../services/products.service";
 import TableCart from "./TableCart";
+import {useLogin} from "../../hooks/useLogin";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -11,6 +12,7 @@ function classNames(...classes) {
 
 export default function ProductsSection() {
   const [products, setProducts] = useState([]);
+  useLogin();
 
   // Penggunaan useEffect
   // useEffect(() => {
