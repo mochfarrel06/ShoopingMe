@@ -1,7 +1,14 @@
 import {UserIcon} from "@heroicons/react/20/solid";
+import {useEffect, useState} from "react";
+import {getUsername} from "../../services/auth.service";
 
 export default function ProfileSection() {
-  const email = localStorage.getItem("email");
+  const [username, setUsername] = useState("");
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setUsername(getUsername(token));
+  }, []);
 
   return (
     <div className="py-24 max-[400px]:py-20 sm:py-28 lg:py-28">
@@ -52,7 +59,7 @@ export default function ProfileSection() {
                       type="text"
                       name="text"
                       className="px-5 py-2 bg-white border text-gray-500 shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-blue-500 block w-full rounded-md sm:text-sm focus:ring-1 max-[400px]:text-sm"
-                      value="johnd"
+                      value={username}
                       disabled
                     />
                     <button className="px-4 py-2 w-20 bg-gray-600 text-white text-sm font-medium rounded-md lg:px-6 lg:w-24">
@@ -86,7 +93,7 @@ export default function ProfileSection() {
                       type="email"
                       name="email"
                       className="px-5 py-2 bg-white border text-gray-500 shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-blue-500 block w-full rounded-md sm:text-sm focus:ring-1 max-[400px]:text-sm"
-                      value={email}
+                      value="mochfarrel008@gmail.com"
                       disabled
                     />
                     <button className="px-4 py-2 w-20 bg-gray-600 text-white text-sm font-medium rounded-md lg:px-6 lg:w-24">

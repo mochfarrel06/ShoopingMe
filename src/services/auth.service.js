@@ -1,4 +1,5 @@
 import axios from "axios";
+import {jwtDecode} from "jwt-decode";
 
 export const login = (data, callback) => {
   axios
@@ -7,4 +8,9 @@ export const login = (data, callback) => {
       callback(true, res.data.token);
     })
     .catch((error) => callback(false, error));
+};
+
+export const getUsername = (token) => {
+  const decoded = jwtDecode(token);
+  return decoded.user;
 };
