@@ -27,16 +27,15 @@ function classNames(...clasess) {
 }
 
 export default function Navbar() {
-  const [email, setEmail] = useState({});
+  const [username, setUsername] = useState({});
 
   useEffect(() => {
-    const emailString = localStorage.getItem("email");
-    setEmail(emailString);
+    const usernameString = localStorage.getItem("token");
+    setUsername(usernameString);
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("email");
-    localStorage.removeItem("password");
+    localStorage.removeItem("token");
     window.location.href = "/";
   };
 
@@ -59,7 +58,7 @@ export default function Navbar() {
                 user={user}
                 classNames={classNames}
                 onClick={handleLogout}
-                email={email}
+                username={username}
               />
               <NavbarMain.NavbarMenu open={open} />
             </NavbarMain>

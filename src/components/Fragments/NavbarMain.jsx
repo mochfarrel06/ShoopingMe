@@ -73,11 +73,11 @@ function NavbarSearch() {
   );
 }
 
-function NavbarProfile({user, classNames, onClick, email}) {
+function NavbarProfile({user, classNames, onClick, username}) {
   return (
     <div className="hidden lg:block">
       <div className="flex items-center h-full gap-4">
-        {email ? (
+        {username ? (
           <>
             <Link
               to="/cart"
@@ -143,7 +143,7 @@ function NavbarProfile({user, classNames, onClick, email}) {
         ) : (
           <>
             <button className="block px-3 bg-blue-800 py-2 rounded-md font-medium text-base text-white transition-all duration-150 ease-in-out hover:bg-blue-700">
-              <Link to="/register">Sign Up</Link>
+              <Link to="/login">Sign In</Link>
             </button>
           </>
         )}
