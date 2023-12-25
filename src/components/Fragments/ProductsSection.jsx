@@ -2,7 +2,7 @@ import {Fragment, useEffect, useRef, useState} from "react";
 import {Menu, Transition} from "@headlessui/react";
 import {ChevronDownIcon} from "@heroicons/react/20/solid";
 import CardProduct from "./CardProduct";
-import {getMensClothing} from "../../services/products.service";
+import {getProducts} from "../../services/products.service";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -18,9 +18,9 @@ export default function ProductsSection() {
     setCart(JSON.parse(localStorage.getItem("cart")) || []);
   }, []);
 
-  // Mengambil data men clothing dari api
+  // Mengambil data products clothing dari api
   useEffect(() => {
-    getMensClothing((data) => {
+    getProducts((data) => {
       setProducts(data);
     });
   }, []);
@@ -170,6 +170,7 @@ export default function ProductsSection() {
                 <CardProduct key={product.id}>
                   <CardProduct.CardImage image={product.image} />
                   <CardProduct.CardBody
+                    id={product.id}
                     title={product.title}
                     price={product.price}
                     rate={product.rating.rate}

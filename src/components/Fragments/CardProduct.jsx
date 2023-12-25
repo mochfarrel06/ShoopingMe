@@ -1,4 +1,5 @@
 import {StarIcon} from "@heroicons/react/20/solid";
+import {Link} from "react-router-dom";
 
 export default function CardProduct({children}) {
   return (
@@ -20,16 +21,16 @@ function CardImage({image, title}) {
   );
 }
 
-function CardBody({title, price, rate}) {
+function CardBody({title, price, rate, id}) {
   return (
     <div className="mt-4 flex flex-col w-full gap-4">
       <div className="flex gap-10">
-        <a
-          href="#"
+        <Link
+          to={`/product/${id}`}
           className="text-lg font-medium truncate text-gray-700 max-[400px]:text-base"
         >
           {title}
-        </a>
+        </Link>
         <div className="flex items-center gap-2">
           <p className="text-gray-700 font-normal text-sm">{rate}</p>
           <StarIcon className="h-4 w-4 text-yellow-400" />
