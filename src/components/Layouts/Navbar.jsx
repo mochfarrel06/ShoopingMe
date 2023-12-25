@@ -11,7 +11,7 @@ const user = {
 };
 
 const navigation = [
-  {name: "Men", to: "/man-clothing", current: false},
+  {name: "Products", to: "/products", current: false},
   {name: "Women", to: "/woman-clothing", current: false},
   {name: "Jewelery", to: "/jewelery", current: false},
   {name: "Electronics", to: "/electronics", current: false},

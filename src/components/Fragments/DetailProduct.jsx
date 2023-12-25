@@ -1,7 +1,21 @@
 import {StarIcon} from "@heroicons/react/20/solid";
 import {HeartIcon} from "@heroicons/react/24/outline";
+import {useEffect, useState} from "react";
+import {useParams} from "react-router-dom";
+import {getDetailProduct} from "../../services/products.service";
 
 export default function DetailProduct() {
+  const [product, setProduct] = useState({});
+  const {id} = useParams();
+
+  useEffect(() => {
+    getDetailProduct(id, (data) => {
+      setProduct(data);
+    });
+  }, [id]);
+
+  console.log(product);
+
   return (
     <div className="py-20 max-[400px]:py-10 sm:py-24 md:py-32 lg:py-36">
       <div className="mx-auto max-w-2xl lg:max-w-7xl">
@@ -18,7 +32,8 @@ export default function DetailProduct() {
           <div className="flex flex-col gap-6 lg:gap-12">
             <div className="flex flex-col gap-2">
               <h1 className="font-bold text-2xl tracking-wide truncate text-gray-700 max-[400px]:text-lg">
-                Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops
+                {/* Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops */}
+                {id}
               </h1>
               <div className="flex justify-between items-center">
                 <div className="flex gap-3 items-center">

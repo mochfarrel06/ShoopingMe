@@ -12,6 +12,8 @@ import RegisterPage from "./pages/register.jsx";
 import ManPage from "./pages/man-clothing.jsx";
 import WomanPage from "./pages/woman-clothing.jsx";
 import ProfilePage from "./pages/profile.jsx";
+import DetailProductPage from "./pages/detailProduct.jsx";
+import ProductsPage from "./pages/products.jsx";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +34,10 @@ const router = createBrowserRouter([
     element: <ManPage />,
   },
   {
+    path: "/products",
+    element: <ProductsPage />,
+  },
+  {
     path: "/woman-clothing",
     element: <WomanPage />,
   },
@@ -50,6 +56,10 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: <ProfilePage />,
+  },
+  {
+    path: "/product/:id",
+    element: <DetailProductPage />,
   },
 ]);
 
