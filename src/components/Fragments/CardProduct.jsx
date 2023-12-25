@@ -1,5 +1,7 @@
 import {StarIcon} from "@heroicons/react/20/solid";
 import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {addToCart} from "../../redux/slices/cartSlice";
 
 export default function CardProduct({children}) {
   return (
@@ -50,9 +52,10 @@ function CardBody({title, price, rate, id}) {
 }
 
 function CardFooter({children, id, handleAddToCart}) {
+  const dispatch = useDispatch();
   return (
     <button
-      onClick={() => handleAddToCart(id)}
+      onClick={() => dispatch(addToCart({id, qty: 1}))}
       className="mt-10 flex w-full justify-center rounded-md bg-white px-3 py-1.5 text-sm border-2 font-semibold leading-6 text-gray-700 shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 max-[315px]:text-xs lg:text-base lg:py-2"
     >
       {children}
