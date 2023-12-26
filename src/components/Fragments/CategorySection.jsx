@@ -2,22 +2,26 @@ import {Fragment, useEffect, useRef, useState} from "react";
 import {Menu, Transition} from "@headlessui/react";
 import {ChevronDownIcon} from "@heroicons/react/20/solid";
 import CardProduct from "./CardProduct";
-import {getProducts} from "../../services/products.service";
+import {
+  getCategoryProducts,
+  getProducts,
+} from "../../services/products.service";
 import TableCart from "./TableCart";
+import {useParams} from "react-router-dom";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function ProductsSection() {
-  const [products, setProducts] = useState([]);
+export default function CategorySection() {
+  const {category} = useParams();
+  const [categoryData, setCategoryData] = useState([]);
 
-  // Mengambil data products clothing dari api
   useEffect(() => {
-    getProducts((data) => {
-      setProducts(data);
+    getCategoryProducts(category, (data) => {
+      setCategoryData(data);
     });
-  }, []);
+  }, [category]);
 
   return (
     <div className="py-24 max-[400px]:py-20 sm:py-28 lg:py-28">
@@ -26,7 +30,7 @@ export default function ProductsSection() {
         <div>
           <div className="flex justify-between items-center max-[400px]:flex-col max-[400px]:items-start max-[400px]:gap-5">
             <h2 className="text-base font-medium tracking-tight text-gray-500 max-[400px]:text-sm lg:text-lg">
-              Showing products {products.length}
+              Showing products {categoryData.length}
             </h2>
             <Menu as="div" className="relative inline-block text-left">
               <div>
@@ -119,8 +123,8 @@ export default function ProductsSection() {
           </div>
 
           <div className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-            {products.length > 0 &&
-              products.map((product) => (
+            {categoryData.length > 0 &&
+              categoryData.map((product) => (
                 <CardProduct key={product.id}>
                   <CardProduct.CardImage image={product.image} />
                   <CardProduct.CardBody
@@ -138,7 +142,7 @@ export default function ProductsSection() {
         </div>
         <div className="py-20">
           <h1 className="text-3xl font-bold mb-10">Cart</h1>
-          <TableCart products={products} />
+          {/* <TableCart products={products} /> */}
         </div>
       </div>
       {/* End product section */}

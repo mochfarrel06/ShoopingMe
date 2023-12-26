@@ -32,23 +32,23 @@ function NavbarTitle({title}) {
   );
 }
 
-function NavbarNavigation({navigation, classNames}) {
+function NavbarNavigation({categories, classNames}) {
   return (
     <div className="hidden lg:block">
       <div className="flex items-baseline space-x-4">
-        {navigation.map((item) => (
+        {categories.map((category) => (
           <Link
-            key={item.name}
-            to={item.to}
+            key={category}
+            to={`/category/${category}`}
             className={classNames(
-              item.current
+              category.current
                 ? "bg-gray-900 text-white"
                 : "text-gray-500 hover:bg-gray-700 hover:text-white",
               "rounded-md px-3 py-2 text-sm font-medium lg:text-base"
             )}
-            aria-current={item.current ? "page" : undefined}
+            aria-current={category.current ? "page" : undefined}
           >
-            {item.name}
+            {category}
           </Link>
         ))}
       </div>

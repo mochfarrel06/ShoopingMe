@@ -13,6 +13,7 @@ const user = {
 
 const navigation = [
   {name: "Products", to: "/products", current: false},
+  {name: "men", to: "/men", current: false},
   {name: "Women", to: "/woman-clothing", current: false},
   {name: "Jewelery", to: "/jewelery", current: false},
   {name: "Electronics", to: "/electronics", current: false},
@@ -49,6 +50,14 @@ export default function Navbar() {
     window.location.href = "/";
   };
 
+  // Kategori
+  const categories = [
+    "electronics",
+    "jewelery",
+    "men's clothing",
+    "women's clothing",
+  ];
+
   return (
     <div className="min-h-full">
       <Disclosure
@@ -60,7 +69,7 @@ export default function Navbar() {
             <NavbarMain>
               <NavbarMain.NavbarTitle title={"ShoppingMe"} />
               <NavbarMain.NavbarNavigation
-                navigation={navigation}
+                categories={categories}
                 classNames={classNames}
               />
               <NavbarMain.NavbarSearch />
@@ -81,7 +90,8 @@ export default function Navbar() {
               />
               <NavbarMobile.NavbarProfileMobile
                 user={user}
-                userNavigation={userNavigation}
+                username={username}
+                onClick={handleLogout}
               />
             </NavbarMobile>
           </>

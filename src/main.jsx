@@ -18,6 +18,8 @@ import {Provider} from "react-redux";
 import store from "./redux/store.js";
 import DarkModeContextProvider from "./context/DarkMode.jsx";
 import {TotalPriceProvider} from "./context/TotalPriceContext.jsx";
+import CategorySection from "./components/Fragments/CategorySection.jsx";
+import CategoryPage from "./pages/category.jsx";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +42,14 @@ const router = createBrowserRouter([
   {
     path: "/products",
     element: <ProductsPage />,
+  },
+  {
+    path: "/category/:category",
+    element: <CategoryPage />,
+  },
+  {
+    path: "/men",
+    element: <ManPage />,
   },
   {
     path: "/woman-clothing",

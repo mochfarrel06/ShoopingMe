@@ -47,3 +47,14 @@ export const getMensClothing = (callback) => {
       console.log(err);
     });
 };
+
+export const getCategoryProducts = (category, callback) => {
+  axios
+    .get(`https://fakestoreapi.com/products/category/${category}`)
+    .then((res) => {
+      callback(res.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};

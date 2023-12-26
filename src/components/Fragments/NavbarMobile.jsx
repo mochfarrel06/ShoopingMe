@@ -1,5 +1,6 @@
 import {Disclosure} from "@headlessui/react";
 import {ShoppingCartIcon} from "@heroicons/react/20/solid";
+import {Link} from "react-router-dom";
 
 export default function NavbarMobile({children}) {
   return (
@@ -32,10 +33,10 @@ function NavbarTitleMobile({navigation, classNames}) {
   );
 }
 
-function NavbarProfileMobile({user, userNavigation}) {
+function NavbarProfileMobile({user, username, onClick}) {
   return (
     <div className="border-t border-x-gray-700 pt-4">
-      {/* {isLoggedIn ? (
+      {username ? (
         <>
           <div className="flex items-center justify-between px-3">
             <div className="flex items-start gap-3">
@@ -68,71 +69,30 @@ function NavbarProfileMobile({user, userNavigation}) {
             </button>
           </div>
           <div className="mt-3 space-y-1">
-            {userNavigation.map((item) => (
-              <Disclosure.Button
-                key={item.name}
-                as="a"
-                href={item.href}
-                className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white max-[400px]:text-sm"
-              >
-                {item.name}
-              </Disclosure.Button>
-            ))}
+            <Link
+              to="/profile"
+              className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white max-[400px]:text-sm"
+            >
+              Profile
+            </Link>
+            <Link
+              to="/profile"
+              onClick={onClick}
+              className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white max-[400px]:text-sm"
+            >
+              Logout
+            </Link>
           </div>
         </>
       ) : (
         <>
-          <div className="px-3 pb-3">
-            <button className="block bg-blue-800 px-4 py-2 rounded font-medium text-lg w-full text-white hover:bg-blue-700 transition-all ease-in-out duration-200">
-              Sign Up
+          <div className="px-3">
+            <button className="block px-3 bg-blue-800 py-2 rounded-md font-medium text-base text-white transition-all duration-150 ease-in-out hover:bg-blue-700">
+              <Link to="/login">Sign In</Link>
             </button>
           </div>
         </>
-      )} */}
-      <>
-        <div className="flex items-center justify-between px-3">
-          <div className="flex items-start gap-3">
-            <div className="flex-shrink-0">
-              <img
-                className="h-10 w-10 rounded-full max-[400px]:h-8 max-[400px]:w-8"
-                src={user.imageUrl}
-                alt=""
-              />
-            </div>
-            <div className="flex flex-col gap-1">
-              <div className="text-base font-medium leading-none text-gray-700 max-[400px]:text-sm">
-                {user.name}
-              </div>
-              <div className="text-sm font-medium leading-none text-gray-400 max-[400px]:text-xs">
-                {user.email}
-              </div>
-            </div>
-          </div>
-          <button
-            type="button"
-            className="relative flex-shrink-0 rounded-full bg-gray-800 p-2 text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-          >
-            <span className="absolute -inset-1.5" />
-            <span className="sr-only">View notifications</span>
-            <ShoppingCartIcon
-              className="h-5 w-5 max-[400px]:h-4 max-[400px]:w-4"
-              aria-hidden="true"
-            />
-          </button>
-        </div>
-        <div className="mt-3 space-y-1">
-          {userNavigation.map((item) => (
-            <Disclosure.Button
-              key={item.name}
-              as="a"
-              href={item.href}
-              className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white max-[400px]:text-sm"
-            >
-              {item.name}
-            </Disclosure.Button>
-          ))}
-        </div>
-      </>
+      )}
     </div>
   );
 }

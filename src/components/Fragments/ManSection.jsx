@@ -9,61 +9,13 @@ function classNames(...classes) {
 }
 
 export default function ManSection() {
-  const [cart, setCart] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(0);
   const [products, setProducts] = useState([]);
 
-  // Penggunaan useEffect
   useEffect(() => {
-    setCart(JSON.parse(localStorage.getItem("cart")) || []);
-  }, []);
-
-  // Mengambil data men clothing dari api
-  useEffect(() => {
-    getMensClothing((data) => {
+    getProducts((data) => {
       setProducts(data);
     });
   }, []);
-
-  useEffect(() => {
-    if (products.length > 0 && cart.length > 0) {
-      const sum = cart.reduce((acc, item) => {
-        const product = products.find((product) => product.id === item.id);
-        return acc + product.price * item.qty;
-      }, 0);
-      setTotalPrice(sum);
-      localStorage.setItem("cart", JSON.stringify(cart));
-    }
-  }, [cart, products]);
-
-  const handleAddToCart = (id) => {
-    if (cart.find((item) => item.id === id)) {
-      setCart(
-        cart.map((item) =>
-          item.id === id ? {...item, qty: item.qty + 1} : item
-        )
-      );
-    } else {
-      setCart([
-        ...cart,
-        {
-          id,
-          qty: 1,
-        },
-      ]);
-    }
-  };
-
-  // Penggunaan useRef
-  const totalPriceRef = useRef(null);
-
-  useEffect(() => {
-    if (cart.length > 0) {
-      totalPriceRef.current.style.display = "table-row";
-    } else {
-      totalPriceRef.current.style.display = "none";
-    }
-  }, [cart]);
 
   return (
     <div className="py-24 max-[400px]:py-20 sm:py-28 lg:py-28">
