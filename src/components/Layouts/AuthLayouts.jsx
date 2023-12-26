@@ -1,8 +1,23 @@
+import {useContext} from "react";
 import {Link} from "react-router-dom";
+import {DarkModeContext} from "../../context/DarkMode";
 
 export default function AuthLayouts({children, title, description, type}) {
+  const {isDarkMode, setIsDarkMode} = useContext(DarkModeContext);
+  console.log(isDarkMode);
+
   return (
-    <div className="flex min-h-screen justify-center items-center py-32">
+    <div
+      className={`flex min-h-screen justify-center items-center py-32 relative ${
+        isDarkMode && "bg-slate-800"
+      }`}
+    >
+      <button
+        className="absolute right-2 top-40 bg-blue-800 p-2 text-white rounded-md"
+        onClick={() => setIsDarkMode(!isDarkMode)}
+      >
+        {isDarkMode ? "Light" : "Dark"}
+      </button>
       <div className="flex flex-col w-full px-6 py-12 gap-12 max-[315px]:w-full max-[315px]:gap-10 sm:max-w-sm md:max-w-md lg:max-w-lg lg:px-8 lg:gap-20 xl:max-w-xl">
         <div className="flex flex-col max-[315px]:gap-1 lg:gap-3">
           <h2 className="text-xl font-bold leading-9 tracking-tight text-gray-900 max-[315px]:text-lg sm:text-2xl lg:text-3xl">
