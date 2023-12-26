@@ -1,6 +1,6 @@
 export default function HeroSection() {
   return (
-    <div className="py-60 max-[400px]:py-36 lg:py-64">
+    <div className="py-48 max-[400px]:py-36 md:py-56 lg:py-64">
       <div className="hidden sm:mb-8 sm:flex sm:justify-center">
         <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
           Shop more easily, quickly, securely and best-selling transactions

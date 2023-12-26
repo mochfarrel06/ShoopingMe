@@ -20,7 +20,7 @@ export default function DetailProduct() {
         {Object.keys(product).length > 0 && (
           <div className="flex flex-col gap-10 lg:flex-row lg:gap-20">
             {/* Image */}
-            <div className="bg-white mx-auto max-w-xs py-5 flex items-center max-[400px]:max-w-[12rem] sm:max-w-sm md:max-w-xs">
+            <div className="mx-auto max-w-xs py-5 flex items-center max-[400px]:max-w-[12rem] sm:max-w-sm md:max-w-xs">
               <img
                 src={product.image}
                 alt={product.title}

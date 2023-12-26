@@ -1,6 +1,14 @@
 import {MinusIcon, PlusIcon, TrashIcon} from "@heroicons/react/20/solid";
+import {useEffect, useState} from "react";
+import {getAllCarts} from "../../services/carts.service";
 
 export default function CartSection() {
+  const [carts, setCarts] = useState([]);
+
+  useEffect(() => {
+    getAllCarts();
+  });
+
   return (
     <div className="py-24 max-[400px]:py-20 sm:py-28 lg:py-28">
       <div className="mx-auto max-w-2xl lg:max-w-7xl">
@@ -12,7 +20,7 @@ export default function CartSection() {
             {/* Product cart */}
             <div className="divide-y divide-gray-200 mb-10">
               {/* Product 1 */}
-              {cart.map((item) => (
+              {/* {cart.map((item) => (
                 <div
                   key={item.id}
                   className="flex gap-5 items-center px-2 py-4 max-[400px]:items-start lg:gap-10"
@@ -59,7 +67,7 @@ export default function CartSection() {
                     </div>
                   </div>
                 </div>
-              ))}
+              ))} */}
 
               {/* End product 1 */}
             </div>

@@ -5,7 +5,7 @@ import {addToCart} from "../../redux/slices/cartSlice";
 
 export default function CardProduct({children}) {
   return (
-    <div className="group relative shadow-md rounded-md overflow-hidden px-5 py-10">
+    <div className="group relative border-2 border-gray-100 rounded-md overflow-hidden px-5 py-10">
       {children}
     </div>
   );
@@ -13,7 +13,7 @@ export default function CardProduct({children}) {
 
 function CardImage({image, title}) {
   return (
-    <div className="group-hover:opacity-75 flex items-center justify-center h-96 max-[400px]:h-72">
+    <div className="group-hover:opacity-75 overflow-hidden flex items-center bg-white justify-center h-80 max-[400px]:h-72 sm:px-10 md:px-14 lg:px-14 xl:h-60">
       <img
         src={image}
         alt={title}
@@ -56,7 +56,7 @@ function CardFooter({children, id}) {
   return (
     <button
       onClick={() => dispatch(addToCart({id, qty: 1}))}
-      className="mt-10 flex w-full justify-center rounded-md bg-white px-3 py-1.5 text-sm border-2 font-semibold leading-6 text-gray-700 shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 max-[315px]:text-xs lg:text-base lg:py-2"
+      className="mt-10 flex w-full justify-center rounded-md bg-white px-3 py-1.5 text-sm border-2 font-semibold leading-6 text-gray-700 shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 max-[315px]:text-xs"
     >
       {children}
     </button>

@@ -1,7 +1,7 @@
 export default function BannerSection() {
   return (
-    <div className="py-20 max-[400px]:py-10 sm:py-24 md:py-32 lg:py-36">
-      <div className="mx-auto max-w-2xl px-4 mt-32 mb-32 bg-gray-100 rounded-md sm:px-6 sm:py-10 lg:max-w-7xl lg:px-8">
+    <div className="py-10 max-[400px]:py-8 sm:py-14 md:py-16 lg:py-24">
+      <div className="mx-auto max-w-2xl px-4 bg-gray-100 rounded-md sm:px-6 lg:max-w-7xl lg:px-8">
         <div className="flex flex-col items-center gap-16 justify-center text-center py-16">
           <div className="flex flex-col gap-3">
             <h4 className="font-semibold text-xl tracking-wide text-gray-800 max-[400px]:text-lg md:text-2xl lg:text-3xl">

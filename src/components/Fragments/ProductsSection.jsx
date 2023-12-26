@@ -35,7 +35,7 @@ export default function ProductsSection() {
         <div>
           <div className="flex justify-between items-center max-[400px]:flex-col max-[400px]:items-start max-[400px]:gap-5">
             <h2 className="text-base font-medium tracking-tight text-gray-500 max-[400px]:text-sm lg:text-lg">
-              Showing products 1 - 10 of 10
+              Showing products {products.length}
             </h2>
             <Menu as="div" className="relative inline-block text-left">
               <div>
