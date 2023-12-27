@@ -6,8 +6,8 @@ import {getCategoryProducts} from "../services/products.service";
 import CardProduct from "../components/Fragments/CardProduct";
 
 export default function CategoryPage() {
-  const {category} = useParams();
   const [categoryData, setCategoryData] = useState([]);
+  const {category} = useParams();
 
   useEffect(() => {
     getCategoryProducts(category, (data) => {

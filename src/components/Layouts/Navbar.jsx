@@ -3,16 +3,8 @@ import {Disclosure} from "@headlessui/react";
 import NavbarMain from "../Fragments/NavbarMain";
 import NavbarMobile from "../Fragments/NavbarMobile";
 import {useSelector} from "react-redux";
-import {useParams} from "react-router-dom";
 import {getUserId} from "../../services/user.service";
 import {getUserIdFromToken} from "../../services/auth.service";
-
-const user = {
-  name: "Tom Cook",
-  email: "tom@example.com",
-  imageUrl:
-    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-};
 
 function classNames(...clasess) {
   return clasess.filter(Boolean).join(" ");
@@ -44,6 +36,7 @@ export default function Navbar() {
       return acc + item.qty;
     }, 0);
     setTotalCart(sum);
+    localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
   const handleLogout = () => {

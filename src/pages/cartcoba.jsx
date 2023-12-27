@@ -1,11 +1,11 @@
-import CartSection from "../components/Fragments/CartSection";
+import TableCart from "../components/Fragments/TableCart";
 import MainLayouts from "../components/Layouts/MainLayouts";
 
-export default function CartPage() {
+export function CartCobaPage() {
   return (
     <>
       <MainLayouts>
-        <CartSection />
+        <TableCart />
       </MainLayouts>
     </>
   );

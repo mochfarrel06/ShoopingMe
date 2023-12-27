@@ -4,11 +4,20 @@ import {
   useTotalPrice,
   useTotalPriceDispatch,
 } from "../../context/TotalPriceContext";
+import {getProducts} from "../../services/products.service";
 
-export default function TableCart({products}) {
+export default function TableCart() {
   const cart = useSelector((state) => state.cart.data);
+  const [products, setProducts] = useState([]);
   const dispatch = useTotalPriceDispatch();
   const {total} = useTotalPrice();
+
+  // Mengambil data products clothing dari api
+  useEffect(() => {
+    getProducts((data) => {
+      setProducts(data);
+    });
+  }, []);
 
   useEffect(() => {
     if (products.length > 0 && cart.length > 0) {

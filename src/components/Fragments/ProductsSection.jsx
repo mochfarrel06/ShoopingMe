@@ -138,7 +138,7 @@ export default function ProductsSection() {
         </div>
         <div className="py-20">
           <h1 className="text-3xl font-bold mb-10">Cart</h1>
-          <TableCart products={products} />
+          {/* <TableCart products={products} /> */}
         </div>
       </div>
       {/* End product section */}

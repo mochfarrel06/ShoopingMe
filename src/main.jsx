@@ -14,6 +14,7 @@ import DarkModeContextProvider from "./context/DarkMode.jsx";
 import {TotalPriceProvider} from "./context/TotalPriceContext.jsx";
 import CategoryPage from "./pages/category.jsx";
 import ProfilePage from "./pages/profile.jsx";
+import {CartCobaPage} from "./pages/cartcoba.jsx";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: <ProfilePage />,
+  },
+  {
+    path: "/cartcoba",
+    element: <CartCobaPage />,
   },
 ]);
 

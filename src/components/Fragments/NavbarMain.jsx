@@ -73,12 +73,15 @@ function NavbarProfile({classNames, onClick, username, totalCart}) {
       <div className="flex items-center h-full gap-4">
         {username ? (
           <>
-            <a className="relative rounded-full bg-white p-1 text-gray-900 hover:text-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800">
+            <Link
+              to="/carts"
+              className="relative rounded-full bg-white p-1 text-gray-900 hover:text-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800"
+            >
               <span className="absolute bg-orange-600 w-5 h-5 rounded-full right-0 top-0 text-center text-xs text-white font-medium flex items-center justify-center">
                 {totalCart}
               </span>
               <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
-            </a>
+            </Link>
 
             <Menu as="div" className="relative">
               <div>
