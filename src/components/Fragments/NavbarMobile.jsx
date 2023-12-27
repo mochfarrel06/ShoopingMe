@@ -10,24 +10,23 @@ export default function NavbarMobile({children}) {
   );
 }
 
-function NavbarTitleMobile({navigation, classNames}) {
+function NavbarTitleMobile({categories, classNames}) {
   return (
     <div className="flex flex-col gap-2 pb-3">
-      {navigation.map((item) => (
-        <Disclosure.Button
-          key={item.name}
-          as="a"
-          href={item.href}
+      {categories.map((category) => (
+        <Link
+          key={category}
+          to={`/category/${category}`}
           className={classNames(
-            item.current
+            category.current
               ? "bg-gray-900 text-white"
               : "text-gray-400 hover:bg-gray-700 hover:text-white",
             "block rounded-md px-3 py-2 text-base font-medium max-[400px]:text-sm"
           )}
-          aria-current={item.current ? "page" : undefined}
+          aria-current={category.current ? "page" : undefined}
         >
-          {item.name}
-        </Disclosure.Button>
+          {category}
+        </Link>
       ))}
     </div>
   );

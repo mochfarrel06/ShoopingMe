@@ -85,7 +85,7 @@ export default function Navbar() {
 
             <NavbarMobile>
               <NavbarMobile.NavbarTitleMobile
-                navigation={navigation}
+                categories={categories}
                 classNames={classNames}
               />
               <NavbarMobile.NavbarProfileMobile
