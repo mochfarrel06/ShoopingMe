@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Button({
+export default function ButtonCOba({
   children,
   onClick = () => {},
   type = "button",

@@ -1,3 +1,5 @@
+import Button from "../Elements/Button/Button";
+
 export default function HeroSection() {
   return (
     <div className="py-48 max-[400px]:py-36 md:py-56 lg:py-64">
@@ -23,7 +25,7 @@ export default function HeroSection() {
         <div className="mt-10 flex items-center justify-center gap-x-6">
           <a
             href="#"
-            className="rounded-md bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 max-[400px]:text-xs lg:px-6 lg:text-base"
+            className="rounded-md bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900 max-[400px]:text-xs lg:px-6 lg:text-base"
           >
             Shop Now
           </a>
