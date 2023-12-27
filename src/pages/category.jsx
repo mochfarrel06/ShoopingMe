@@ -13,7 +13,7 @@ export default function CategoryPage() {
     getCategoryProducts(category, (data) => {
       setCategoryData(data);
     });
-  }, []);
+  }, [category]);
 
   return (
     <Fragment>
