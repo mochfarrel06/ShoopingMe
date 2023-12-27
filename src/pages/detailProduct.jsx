@@ -5,10 +5,12 @@ import Navbar from "../components/Layouts/Navbar";
 
 export default function DetailProductPage() {
   return (
-    <MainLayouts>
+    <>
       <Navbar />
-      <DetailProduct />
+      <MainLayouts>
+        <DetailProduct />
+      </MainLayouts>
       <Footer />
-    </MainLayouts>
+    </>
   );
 }

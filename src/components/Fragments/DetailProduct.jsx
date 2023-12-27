@@ -20,15 +20,15 @@ export default function DetailProduct() {
         {Object.keys(product).length > 0 && (
           <div className="flex flex-col gap-10 lg:flex-row lg:gap-20">
             {/* Image */}
-            <div className="mx-auto max-w-xs py-5 flex items-center max-[400px]:max-w-[12rem] sm:max-w-sm md:max-w-xs">
+            <div className="w-full py-10 bg-white border-2 border-gray-300 border-opacity-45 rounded-md flex items-center justify-center sm:py-16 md:py-20 lg:w-[40%]">
               <img
                 src={product.image}
                 alt={product.title}
-                className="h-full w-full object-cover object-center"
+                className="object-cover w-60 object-center max-[400px]:w-40 sm:w-64 md:w-72 lg:w-60"
               />
             </div>
             {/* Detail */}
-            <div className="flex flex-col gap-6 lg:gap-12">
+            <div className="flex flex-col gap-6 lg:gap-12 lg:w-[60%]">
               <div className="flex flex-col gap-2">
                 <h1 className="font-bold text-2xl tracking-wide truncate text-gray-700 max-[400px]:text-lg">
                   {product.title}
