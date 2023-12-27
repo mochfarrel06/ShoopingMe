@@ -3,6 +3,9 @@ import {Disclosure} from "@headlessui/react";
 import NavbarMain from "../Fragments/NavbarMain";
 import NavbarMobile from "../Fragments/NavbarMobile";
 import {useSelector} from "react-redux";
+import {useParams} from "react-router-dom";
+import {getUserId} from "../../services/user.service";
+import {getUserIdFromToken} from "../../services/auth.service";
 
 const user = {
   name: "Tom Cook",
@@ -10,19 +13,6 @@ const user = {
   imageUrl:
     "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
 };
-
-const navigation = [
-  {name: "Products", to: "/products", current: false},
-  {name: "men", to: "/men", current: false},
-  {name: "Women", to: "/woman-clothing", current: false},
-  {name: "Jewelery", to: "/jewelery", current: false},
-  {name: "Electronics", to: "/electronics", current: false},
-];
-
-const userNavigation = [
-  {name: "Your Profile", to: "/profile"},
-  {name: "Sign out", to: ""},
-];
 
 function classNames(...clasess) {
   return clasess.filter(Boolean).join(" ");
@@ -32,10 +22,22 @@ export default function Navbar() {
   const [username, setUsername] = useState({});
   const [totalCart, setTotalCart] = useState(0);
   const cart = useSelector((state) => state.cart.data);
+  const [userDetails, setUserDetails] = useState({});
+  const {id} = useParams();
 
   useEffect(() => {
     const usernameString = localStorage.getItem("token");
     setUsername(usernameString);
+  }, []);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      const userId = getUserIdFromToken(token);
+      getUserId(userId, (data) => {
+        setUserDetails(data);
+      });
+    }
   }, []);
 
   useEffect(() => {
@@ -74,7 +76,6 @@ export default function Navbar() {
               />
               <NavbarMain.NavbarSearch />
               <NavbarMain.NavbarProfile
-                user={user}
                 classNames={classNames}
                 onClick={handleLogout}
                 username={username}
@@ -89,7 +90,8 @@ export default function Navbar() {
                 classNames={classNames}
               />
               <NavbarMobile.NavbarProfileMobile
-                user={user}
+                totalCart={totalCart}
+                user={userDetails}
                 username={username}
                 onClick={handleLogout}
               />

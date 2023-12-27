@@ -14,6 +14,7 @@ import store from "./redux/store.js";
 import DarkModeContextProvider from "./context/DarkMode.jsx";
 import {TotalPriceProvider} from "./context/TotalPriceContext.jsx";
 import CategoryPage from "./pages/category.jsx";
+import ProfilePage from "./pages/profile.jsx";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
   {
     path: "/product/:id",
     element: <DetailProductPage />,
+  },
+  {
+    path: "/profile",
+    element: <ProfilePage />,
   },
 ]);
 

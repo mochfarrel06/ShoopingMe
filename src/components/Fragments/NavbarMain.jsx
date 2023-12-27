@@ -32,21 +32,15 @@ function NavbarTitle({title}) {
   );
 }
 
-function NavbarNavigation({categories, classNames}) {
+function NavbarNavigation({categories}) {
   return (
     <div className="hidden lg:block">
-      <div className="flex items-baseline space-x-4">
+      <div className="flex items-center justify-center gap-4 h-full xl:gap-2">
         {categories.map((category) => (
           <Link
             key={category}
             to={`/category/${category}`}
-            className={classNames(
-              category.current
-                ? "bg-gray-900 text-white"
-                : "text-gray-500 hover:bg-gray-700 hover:text-white",
-              "rounded-md px-3 py-2 text-sm font-medium lg:text-base"
-            )}
-            aria-current={category.current ? "page" : undefined}
+            className="text-base font-medium rounded-md text-gray-500 transition-all ease-in-out duration-150 lg:text-sm min-[1109px]:text-base xl:text-lg xl:px-3 xl:py-1 xl:hover:bg-gray-700 xl:hover:text-white"
           >
             {category}
           </Link>
@@ -58,7 +52,7 @@ function NavbarNavigation({categories, classNames}) {
 
 function NavbarSearch() {
   return (
-    <label className="relative block">
+    <label className="relative block w-60 xl:w-72">
       <span className="sr-only">Search</span>
       <span className="absolute inset-y-0 left-0 flex items-center pl-2">
         <MagnifyingGlassIcon className="h-5 w-5 text-gray-400 max-[400px]:h-4 max-[400px]:w-4" />
@@ -73,7 +67,7 @@ function NavbarSearch() {
   );
 }
 
-function NavbarProfile({user, classNames, onClick, username, totalCart}) {
+function NavbarProfile({classNames, onClick, username, totalCart}) {
   return (
     <div className="hidden lg:block">
       <div className="flex items-center h-full gap-4">
@@ -93,8 +87,8 @@ function NavbarProfile({user, classNames, onClick, username, totalCart}) {
                   <span className="sr-only">Open user menu</span>
                   <img
                     className="h-8 w-8 rounded-full xl:h-10 xl:w-10"
-                    src={user.imageUrl}
-                    alt=""
+                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                    alt="Profile"
                   />
                 </Menu.Button>
               </div>

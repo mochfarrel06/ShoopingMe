@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 
 export default function NavbarMobile({children}) {
   return (
-    <Disclosure.Panel className="lg:hidden px-2 pb-3 pt-2 sm:px-6 md:px-8 lg:px-4 xl:px-0">
+    <Disclosure.Panel className="lg:hidden px-2 pb-3 pt-2 sm:px-4 md:px-6">
       {children}
     </Disclosure.Panel>
   );
@@ -32,7 +32,7 @@ function NavbarTitleMobile({categories, classNames}) {
   );
 }
 
-function NavbarProfileMobile({user, username, onClick}) {
+function NavbarProfileMobile({user, username, onClick, totalCart}) {
   return (
     <div className="border-t border-x-gray-700 pt-4">
       {username ? (
@@ -41,14 +41,14 @@ function NavbarProfileMobile({user, username, onClick}) {
             <div className="flex items-start gap-3">
               <div className="flex-shrink-0">
                 <img
-                  className="h-10 w-10 rounded-full max-[400px]:h-8 max-[400px]:w-8"
-                  src={user.imageUrl}
-                  alt=""
+                  className="h-12 w-12 rounded-full max-[400px]:h-8 max-[400px]:w-8"
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  alt="Profile"
                 />
               </div>
               <div className="flex flex-col gap-1">
                 <div className="text-base font-medium leading-none text-gray-700 max-[400px]:text-sm">
-                  {user.name}
+                  {user.username}
                 </div>
                 <div className="text-sm font-medium leading-none text-gray-400 max-[400px]:text-xs">
                   {user.email}
@@ -59,8 +59,9 @@ function NavbarProfileMobile({user, username, onClick}) {
               type="button"
               className="relative flex-shrink-0 rounded-full bg-gray-800 p-2 text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
             >
-              <span className="absolute -inset-1.5" />
-              <span className="sr-only">View notifications</span>
+              <span className="absolute bg-orange-600 w-5 h-5 rounded-full right-0 top-0 text-center text-xs text-white font-medium flex items-center justify-center">
+                {totalCart}
+              </span>
               <ShoppingCartIcon
                 className="h-5 w-5 max-[400px]:h-4 max-[400px]:w-4"
                 aria-hidden="true"
