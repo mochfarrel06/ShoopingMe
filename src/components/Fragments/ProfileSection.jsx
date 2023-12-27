@@ -1,4 +1,3 @@
-import {UserIcon} from "@heroicons/react/20/solid";
 import {useLogin} from "../../hooks/useLogin";
 import {useEffect, useState} from "react";
 import {getUserId} from "../../services/user.service";
