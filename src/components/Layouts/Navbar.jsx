@@ -23,7 +23,6 @@ export default function Navbar() {
   const [totalCart, setTotalCart] = useState(0);
   const cart = useSelector((state) => state.cart.data);
   const [userDetails, setUserDetails] = useState({});
-  const {id} = useParams();
 
   useEffect(() => {
     const usernameString = localStorage.getItem("token");

@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {Fragment, useEffect, useState} from "react";
 import BannerSection from "../components/Fragments/BannerSection";
 import HeroSection from "../components/Fragments/HeroSection";
 import ProductSection from "../components/Fragments/ProductSection";
@@ -11,20 +11,13 @@ export default function HomePage() {
 
   // Get products limit
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        getProductsLimit(4, (data) => {
-          setProducts(data);
-        });
-      } catch (error) {
-        console.log("Error fetching data", error);
-      }
-    };
-    fetchData();
-  }, []);
+    getProductsLimit(4, (data) => {
+      setProducts(data);
+    });
+  }, [products]);
 
   return (
-    <>
+    <Fragment>
       <MainLayouts>
         <HeroSection>
           <HeroSection.Header
@@ -63,6 +56,6 @@ export default function HomePage() {
           <BannerSection.Footer btnTitle={"Subsribe"} />
         </BannerSection>
       </MainLayouts>
-    </>
+    </Fragment>
   );
 }
