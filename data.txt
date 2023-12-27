@@ -1,12 +1,5 @@
-1. Home
-    a. Header 
-    - Shop more easily, quickly, securely and best-selling transactions here.
-    - shop now
-    b. Body
-    -  Shop for goods easily
-    -  Find the convenience of shopping for your favorite items quickly and
-        safely in our online shop. An easy, practical and satisfying shopping
-        experience only here!
-    c. Footer
-    - Shop now
-    - Learn More
+Banner
+
+1. Header
+    - Title: 
+    - Description: 

@@ -9,6 +9,7 @@ import CardProduct from "../components/Fragments/CardProduct";
 export default function HomePage() {
   const [products, setProducts] = useState([]);
 
+  // Get products limit
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -54,7 +55,13 @@ export default function HomePage() {
             </CardProduct>
           ))}
         </ProductSection>
-        <BannerSection />
+        <BannerSection>
+          <BannerSection.Header
+            title={"Get Exclusive Offer On Your Email"}
+            description={"Subscribe to our newsletter and stay update"}
+          />
+          <BannerSection.Footer btnTitle={"Subsribe"} />
+        </BannerSection>
       </MainLayouts>
     </>
   );

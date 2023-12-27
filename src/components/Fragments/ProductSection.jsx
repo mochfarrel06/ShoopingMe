@@ -1,7 +1,3 @@
-import {useEffect, useState} from "react";
-import CardProduct from "./CardProduct";
-import {getProductsLimit} from "../../services/products.service";
-
 export default function ProductSection({children, title}) {
   return (
     <div className="py-10 max-[400px]:py-8 sm:py-14 md:py-16 lg:py-24">
