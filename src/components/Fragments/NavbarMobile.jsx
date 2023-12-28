@@ -87,9 +87,12 @@ function NavbarProfileMobile({user, username, onClick, totalCart}) {
       ) : (
         <>
           <div className="px-3">
-            <button className="block px-3 bg-blue-800 py-2 rounded-md font-medium text-base text-white transition-all duration-150 ease-in-out hover:bg-blue-700">
-              <Link to="/login">Sign In</Link>
-            </button>
+            <Link
+              className="block px-3 bg-blue-800 py-2 rounded-md font-medium text-base text-white transition-all duration-150 ease-in-out hover:bg-blue-700"
+              to="/login"
+            >
+              Sign In
+            </Link>
           </div>
         </>
       )}
