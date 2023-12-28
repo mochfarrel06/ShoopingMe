@@ -53,6 +53,7 @@ function CardBody({title, price, rate, id}) {
 
 function CardFooter({children, id}) {
   const dispatch = useDispatch();
+
   return (
     <button
       onClick={() => dispatch(addToCart({id, qty: 1}))}

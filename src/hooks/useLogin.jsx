@@ -11,9 +11,9 @@ export const useLogin = () => {
     if (token) {
       setUsername(getUsername(token));
     } else {
-      navigate("/");
+      navigate("/login");
     }
-  }, []);
+  }, [navigate]);
 
   return username;
 };

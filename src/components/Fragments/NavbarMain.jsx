@@ -68,7 +68,6 @@ function NavbarSearch() {
 }
 
 function NavbarProfile({classNames, onClick, username, totalCart}) {
-  const navigate = useNavigate();
   return (
     <div className="hidden lg:block">
       <div className="flex items-center h-full gap-4">
@@ -140,7 +139,7 @@ function NavbarProfile({classNames, onClick, username, totalCart}) {
           <>
             <Link
               to={"/login"}
-              className="block px-3 bg-blue-800 py-2 rounded-md font-medium text-base text-white transition-all duration-150 ease-in-out hover:bg-blue-700"
+              className="block px-3 bg-blue-800 py-2 rounded-md font-medium text-base text-white transition-all duration-150 ease-in-out hover:bg-blue-700 transform hover:scale-105"
             >
               Sign In
             </Link>

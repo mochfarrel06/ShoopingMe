@@ -2,9 +2,11 @@ import {useState} from "react";
 import {login} from "../../services/auth.service";
 import Button from "../Elements/Button";
 import InputForm from "../Elements/Input";
+import {useNavigate} from "react-router-dom";
 
 export default function FormLogin() {
   const [loginFailed, setLoginFailed] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -16,7 +18,7 @@ export default function FormLogin() {
     login(data, (status, res) => {
       if (status) {
         localStorage.setItem("token", res);
-        window.location.href = "/";
+        navigate("/");
       } else {
         setLoginFailed(res.response.data);
       }
