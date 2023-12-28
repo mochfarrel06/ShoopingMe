@@ -1,8 +1,10 @@
 import {StarIcon} from "@heroicons/react/20/solid";
 import {HeartIcon} from "@heroicons/react/24/outline";
 import {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {getDetailProduct} from "../../services/products.service";
+import {useDispatch} from "react-redux";
+import {addToCart} from "../../redux/slices/cartSlice";
 
 export default function DetailProduct({product, children}) {
   // const [product, setProduct] = useState({});
@@ -40,11 +42,21 @@ function Header({product}) {
 }
 
 function Footer({product}) {
+  const id = product.id;
+  const dispatch = useDispatch();
+  const [username, setUsername] = useState({});
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const usernameString = localStorage.getItem("token");
+    setUsername(usernameString);
+  }, []);
+
   return (
     <div className="flex flex-col gap-6 lg:gap-12 lg:w-[60%]">
       <div className="flex flex-col gap-2">
         <h1 className="font-bold text-2xl tracking-wide truncate text-gray-700 max-[400px]:text-lg">
-          {product.title}
+          {id}
         </h1>
         <div className="flex justify-between items-center">
           <div className="flex gap-3 items-center">
@@ -72,7 +84,16 @@ function Footer({product}) {
         </h4>
       </div>
       <div>
-        <button className="block bg-blue-900 w-full py-3 text-white font-semibold text-lg rounded-md hover:bg-blue-700 transition-all ease-in-out max-[400px]:py-2 max-[400px]:text-base max-[400px]:font-medium">
+        <button
+          onClick={() => {
+            if (username) {
+              dispatch(addToCart({id, qty: 1}));
+            } else {
+              navigate("/login");
+            }
+          }}
+          className="block bg-blue-900 w-full py-3 text-white font-semibold text-lg rounded-md hover:bg-blue-700 transition-all ease-in-out max-[400px]:py-2 max-[400px]:text-base max-[400px]:font-medium"
+        >
           Add to cart
         </button>
       </div>
