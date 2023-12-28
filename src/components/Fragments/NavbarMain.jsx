@@ -7,7 +7,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/20/solid";
 import {Fragment} from "react";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 export default function NavbarMain({children}) {
   return (
@@ -68,6 +68,7 @@ function NavbarSearch() {
 }
 
 function NavbarProfile({classNames, onClick, username, totalCart}) {
+  const navigate = useNavigate();
   return (
     <div className="hidden lg:block">
       <div className="flex items-center h-full gap-4">
@@ -138,7 +139,7 @@ function NavbarProfile({classNames, onClick, username, totalCart}) {
         ) : (
           <>
             <Link
-              to="/login"
+              to={"/login"}
               className="block px-3 bg-blue-800 py-2 rounded-md font-medium text-base text-white transition-all duration-150 ease-in-out hover:bg-blue-700"
             >
               Sign In
