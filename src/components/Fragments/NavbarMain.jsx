@@ -137,9 +137,12 @@ function NavbarProfile({classNames, onClick, username, totalCart}) {
           </>
         ) : (
           <>
-            <button className="block px-3 bg-blue-800 py-2 rounded-md font-medium text-base text-white transition-all duration-150 ease-in-out hover:bg-blue-700">
-              <Link to="/login">Sign In</Link>
-            </button>
+            <Link
+              to="/login"
+              className="block px-3 bg-blue-800 py-2 rounded-md font-medium text-base text-white transition-all duration-150 ease-in-out hover:bg-blue-700"
+            >
+              Sign In
+            </Link>
           </>
         )}
       </div>
