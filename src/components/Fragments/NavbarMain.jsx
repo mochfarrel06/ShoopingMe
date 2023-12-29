@@ -55,13 +55,12 @@ function NavbarNavigation({categories}) {
 
 function NavbarSearch() {
   return (
-    <label className="relative block w-60 xl:w-72">
-      <span className="sr-only">Search</span>
+    <label className="relative group block w-60 xl:w-72">
       <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-        <MagnifyingGlassIcon className="h-5 w-5 text-gray-400 max-[400px]:h-4 max-[400px]:w-4" />
+        <MagnifyingGlassIcon className="h-5 w-5 group-focus-within:text-blue-500 text-gray-400 max-[400px]:h-4 max-[400px]:w-4" />
       </span>
       <input
-        className="placeholder:text-slate-400 block text-sm bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-blue-500 focus:ring-blue-500 focus:ring-1 max-[400px]:text-xs lg:text-base xl:text-lg"
+        className="placeholder:text-slate-400 block text-sm bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:ring-blue-500 focus:ring-1 max-[400px]:text-xs lg:text-base xl:text-lg"
         placeholder="Search product"
         type="text"
         name="search"
