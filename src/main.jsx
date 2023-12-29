@@ -15,6 +15,7 @@ import {TotalPriceProvider} from "./context/TotalPriceContext.jsx";
 import CategoryPage from "./pages/category.jsx";
 import ProfilePage from "./pages/profile.jsx";
 import {CartCobaPage} from "./pages/cartcoba.jsx";
+import SearchPage from "./pages/search.jsx";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
   {
     path: "/cartcoba",
     element: <CartCobaPage />,
+  },
+  {
+    path: "/search",
+    element: <SearchPage />,
   },
 ]);
 
