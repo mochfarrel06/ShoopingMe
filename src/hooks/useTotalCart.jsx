@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
 
-export const useCart = () => {
+export const useTotalCart = () => {
   const [totalCart, setTotalCart] = useState(0);
   const cart = useSelector((state) => state.cart.data);
 

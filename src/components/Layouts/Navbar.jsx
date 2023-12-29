@@ -2,10 +2,9 @@ import {useEffect, useState} from "react";
 import {Disclosure} from "@headlessui/react";
 import NavbarMain from "../Fragments/NavbarMain";
 import NavbarMobile from "../Fragments/NavbarMobile";
-import {useSelector} from "react-redux";
 import {getUserId} from "../../services/user.service";
 import {getUserIdFromToken} from "../../services/auth.service";
-import {useCart} from "../../hooks/useCart";
+import {useTotalCart} from "../../hooks/useTotalCart";
 
 function classNames(...clasess) {
   return clasess.filter(Boolean).join(" ");
@@ -14,7 +13,7 @@ function classNames(...clasess) {
 export default function Navbar() {
   const [username, setUsername] = useState({});
   const [userDetails, setUserDetails] = useState({});
-  const totalCart = useCart();
+  const totalCart = useTotalCart();
 
   useEffect(() => {
     const usernameString = localStorage.getItem("token");
@@ -29,7 +28,7 @@ export default function Navbar() {
         setUserDetails(data);
       });
     }
-  }, []);
+  }, [userDetails]);
 
   const handleLogout = () => {
     localStorage.removeItem("token");

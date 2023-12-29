@@ -23,9 +23,12 @@ export default function NavbarMain({children}) {
 
 function NavbarTitle({title}) {
   return (
-    <Link to="/" className="flex items-center gap-0.5 max-[400px]:gap-0">
-      <ShoppingBagIcon className="h-6 w-6 text-blue-900 max-[400px]:h-5 max-[400px]:w-5 lg:w-7 lg:h-7 xl:h-8 xl:w-8" />
-      <h1 className="font-bold text-lg text-blue-900 tracking-wide max-[400px]:text-base md:text-xl xl:text-2xl">
+    <Link
+      to="/"
+      className="flex items-center gap-0.5 group transition-all ease-in-out duration-400 max-[400px]:gap-0"
+    >
+      <ShoppingBagIcon className="h-6 w-6 text-blue-900 group-hover:text-blue-700 max-[400px]:h-5 max-[400px]:w-5 lg:w-7 lg:h-7 xl:h-8 xl:w-8" />
+      <h1 className="font-bold text-lg text-blue-900 group-hover:text-blue-700 tracking-wide max-[400px]:text-base md:text-xl xl:text-2xl">
         {title}
       </h1>
     </Link>
