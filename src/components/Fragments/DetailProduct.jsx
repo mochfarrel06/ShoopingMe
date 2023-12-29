@@ -56,7 +56,7 @@ function Footer({product}) {
     <div className="flex flex-col gap-6 lg:gap-12 lg:w-[60%]">
       <div className="flex flex-col gap-2">
         <h1 className="font-bold text-2xl tracking-wide truncate text-gray-700 max-[400px]:text-lg">
-          {id}
+          {product.title}
         </h1>
         <div className="flex justify-between items-center">
           <div className="flex gap-3 items-center">

@@ -13,7 +13,7 @@ export const useLogin = () => {
     } else {
       navigate("/login");
     }
-  }, [navigate]);
+  }, []);
 
   return username;
 };

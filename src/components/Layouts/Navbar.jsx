@@ -5,6 +5,7 @@ import NavbarMobile from "../Fragments/NavbarMobile";
 import {useSelector} from "react-redux";
 import {getUserId} from "../../services/user.service";
 import {getUserIdFromToken} from "../../services/auth.service";
+import {useCart} from "../../hooks/useCart";
 
 function classNames(...clasess) {
   return clasess.filter(Boolean).join(" ");
@@ -12,9 +13,8 @@ function classNames(...clasess) {
 
 export default function Navbar() {
   const [username, setUsername] = useState({});
-  const [totalCart, setTotalCart] = useState(0);
-  const cart = useSelector((state) => state.cart.data);
   const [userDetails, setUserDetails] = useState({});
+  const totalCart = useCart();
 
   useEffect(() => {
     const usernameString = localStorage.getItem("token");
@@ -30,14 +30,6 @@ export default function Navbar() {
       });
     }
   }, []);
-
-  useEffect(() => {
-    const sum = cart.reduce((acc, item) => {
-      return acc + item.qty;
-    }, 0);
-    setTotalCart(sum);
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
