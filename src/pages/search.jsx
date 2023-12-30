@@ -5,21 +5,23 @@ import {useEffect, useState} from "react";
 import {getProducts} from "../services/products.service";
 import CardProduct from "../components/Fragments/CardProduct";
 import ProductNotFound from "../components/Fragments/ProductNotFound";
+import "react-loading-skeleton/dist/skeleton.css";
+import ProductLoading from "../components/Fragments/ProductLoading";
 
 export default function SearchPage() {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const location = useLocation();
   const searchQuery = new URLSearchParams(location.search).get("q") || "";
 
   useEffect(() => {
-    setLoading(true);
+    setIsLoading(true);
     getProducts((data) => {
       const filteredProducts = data.filter((product) =>
         product.title.toLowerCase().includes(searchQuery.toLocaleLowerCase())
       );
       setProducts(filteredProducts);
-      setLoading(false);
+      setIsLoading(false);
     });
   }, [searchQuery]);
 
@@ -28,8 +30,8 @@ export default function SearchPage() {
       <SearchSection>
         <SearchSection.Header searchQuery={searchQuery} products={products} />
         <SearchSection.Body products={products}>
-          {loading ? (
-            <p>Loading</p>
+          {isLoading ? (
+            <ProductLoading productCount={20} />
           ) : products.length > 0 ? (
             products.map((product) => (
               <CardProduct key={product.id}>
