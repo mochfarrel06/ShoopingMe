@@ -22,31 +22,34 @@ export default function SearchPage() {
 
   return (
     <MainLayouts>
-      <SearchSection searchQuery={searchQuery} products={products}>
-        {products.length > 0 ? (
-          products.map((product) => (
-            <CardProduct key={product.id}>
-              <CardProduct.CardImage image={product.image} />
-              <CardProduct.CardBody
-                id={product.id}
-                title={product.title}
-                price={product.price}
-                rate={product.rating.rate}
+      <SearchSection>
+        <SearchSection.Header searchQuery={searchQuery} products={products} />
+        <SearchSection.Body products={products}>
+          {products.length > 0 ? (
+            products.map((product) => (
+              <CardProduct key={product.id}>
+                <CardProduct.CardImage image={product.image} />
+                <CardProduct.CardBody
+                  id={product.id}
+                  title={product.title}
+                  price={product.price}
+                  rate={product.rating.rate}
+                />
+                <CardProduct.CardFooter id={product.id}>
+                  Add To Cart
+                </CardProduct.CardFooter>
+              </CardProduct>
+            ))
+          ) : (
+            <ProductNotFound>
+              <ProductNotFound.Header />
+              <ProductNotFound.Footer
+                title={"Oops! Product not found"}
+                description={"Try searching with different keywords."}
               />
-              <CardProduct.CardFooter id={product.id}>
-                Add To Cart
-              </CardProduct.CardFooter>
-            </CardProduct>
-          ))
-        ) : (
-          <ProductNotFound>
-            <ProductNotFound.Header />
-            <ProductNotFound.Footer
-              title={"Oops! Product not found"}
-              description={"Try searching with different keywords."}
-            />
-          </ProductNotFound>
-        )}
+            </ProductNotFound>
+          )}
+        </SearchSection.Body>
       </SearchSection>
     </MainLayouts>
   );
