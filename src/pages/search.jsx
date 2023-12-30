@@ -8,15 +8,18 @@ import ProductNotFound from "../components/Fragments/ProductNotFound";
 
 export default function SearchPage() {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const location = useLocation();
   const searchQuery = new URLSearchParams(location.search).get("q") || "";
 
   useEffect(() => {
+    setLoading(true);
     getProducts((data) => {
       const filteredProducts = data.filter((product) =>
         product.title.toLowerCase().includes(searchQuery.toLocaleLowerCase())
       );
       setProducts(filteredProducts);
+      setLoading(false);
     });
   }, [searchQuery]);
 
@@ -25,7 +28,9 @@ export default function SearchPage() {
       <SearchSection>
         <SearchSection.Header searchQuery={searchQuery} products={products} />
         <SearchSection.Body products={products}>
-          {products.length > 0 ? (
+          {loading ? (
+            <p>Loading</p>
+          ) : products.length > 0 ? (
             products.map((product) => (
               <CardProduct key={product.id}>
                 <CardProduct.CardImage image={product.image} />
