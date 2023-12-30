@@ -1,4 +1,4 @@
-import {useLocation, useParams} from "react-router-dom";
+import {useLocation} from "react-router-dom";
 import MainLayouts from "../components/Layouts/MainLayouts";
 import SearchSection from "../components/Fragments/SearchSection";
 import {useEffect, useState} from "react";
