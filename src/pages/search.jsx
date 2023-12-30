@@ -4,6 +4,7 @@ import SearchSection from "../components/Fragments/SearchSection";
 import {useEffect, useState} from "react";
 import {getProducts} from "../services/products.service";
 import CardProduct from "../components/Fragments/CardProduct";
+import ProductNotFound from "../components/Fragments/ProductNotFound";
 
 export default function SearchPage() {
   const [products, setProducts] = useState([]);
@@ -38,9 +39,13 @@ export default function SearchPage() {
             </CardProduct>
           ))
         ) : (
-          <div className="">
-            <h1>Produk yang anda cari tidak ditemukan</h1>
-          </div>
+          <ProductNotFound>
+            <ProductNotFound.Header />
+            <ProductNotFound.Footer
+              title={"Oops! Product not found"}
+              description={"Try searching with different keywords."}
+            />
+          </ProductNotFound>
         )}
       </SearchSection>
     </MainLayouts>
