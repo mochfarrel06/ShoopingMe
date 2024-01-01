@@ -8,7 +8,7 @@ import CardProduct from "../components/Fragments/CardProduct";
 
 export default function HomePage() {
   const [products, setProducts] = useState([]);
-  const productSectionRef = useRef();
+  const productSectionRef = useRef(null);
 
   // Get products limit
   useEffect(() => {
