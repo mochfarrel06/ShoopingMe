@@ -2,18 +2,7 @@ import {useEffect, useRef} from "react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import {useLocation} from "react-router-dom";
-
-const ScrollToTop = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    if (!location.hash) {
-      window.scroll(0, 0);
-    }
-  }, [location]);
-
-  return null;
-};
+import ScrollToTop from "../Fragments/ScrollToTop";
 
 export default function MainLayouts({children}) {
   return (
