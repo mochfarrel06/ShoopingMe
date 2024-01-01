@@ -1,21 +1,11 @@
 import {StarIcon} from "@heroicons/react/20/solid";
 import {HeartIcon} from "@heroicons/react/24/outline";
 import {useEffect, useState} from "react";
-import {useNavigate, useParams} from "react-router-dom";
-import {getDetailProduct} from "../../services/products.service";
+import {useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {addToCart} from "../../redux/slices/cartSlice";
 
 export default function DetailProduct({product, children}) {
-  // const [product, setProduct] = useState({});
-  // const {id} = useParams();
-
-  // useEffect(() => {
-  //   getDetailProduct(id, (data) => {
-  //     setProduct(data);
-  //   });
-  // }, [id]);
-
   return (
     <div className="py-20 max-[400px]:py-10 sm:py-24 md:py-32 lg:py-36">
       <div className="mx-auto max-w-2xl lg:max-w-7xl">
