@@ -1,6 +1,11 @@
-export default function ProductSection({children, title}) {
+import React from "react";
+
+const ProductSection = React.forwardRef(({children, title}, ref) => {
   return (
-    <div className="py-10 max-[400px]:py-8 sm:py-14 md:py-16 lg:py-24">
+    <div
+      ref={ref}
+      className="py-10 max-[400px]:py-8 sm:py-14 md:py-16 lg:py-24"
+    >
       <div className="mx-auto max-w-2xl lg:max-w-7xl">
         <h2 className="text-xl font-bold tracking-tight text-gray-600 max-[400px]:text-lg md:text-2xl lg:text-3xl">
           {title}
@@ -11,4 +16,6 @@ export default function ProductSection({children, title}) {
       </div>
     </div>
   );
-}
+});
+
+export default ProductSection;
