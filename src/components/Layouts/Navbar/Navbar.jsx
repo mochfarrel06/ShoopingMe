@@ -1,11 +1,15 @@
-import {useEffect, useState} from "react";
-import {Disclosure} from "@headlessui/react";
-import NavbarMain from "../Fragments/NavbarMain";
-import NavbarMobile from "../Fragments/NavbarMobile";
-import {useTotalCart} from "../../hooks/useTotalCart";
-import useUserData from "../../hooks/useUserData";
-import useLogout from "../../hooks/useLogout";
-import {categories} from "../../utils";
+import * as ReactImports from "./index";
+const {
+  useEffect,
+  useState,
+  Disclosure,
+  NavbarMain,
+  NavbarMobile,
+  useTotalCart,
+  useUserData,
+  useLogout,
+  categories,
+} = ReactImports;
 
 function classNames(...clasess) {
   return clasess.filter(Boolean).join(" ");

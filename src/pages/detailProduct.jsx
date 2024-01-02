@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import DetailProduct from "../components/Fragments/DetailProduct";
 import Footer from "../components/Layouts/Footer";
 import MainLayouts from "../components/Layouts/MainLayouts";
-import Navbar from "../components/Layouts/Navbar";
+import Navbar from "../components/Layouts/Navbar/Navbar";
 import {useParams} from "react-router-dom";
 import {getDetailProduct} from "../services/products.service";
 

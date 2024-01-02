@@ -1,7 +1,7 @@
 import FormLogin from "../components/Fragments/FormLogin";
 import AuthLayouts from "../components/Layouts/AuthLayouts";
 import Footer from "../components/Layouts/Footer";
-import Navbar from "../components/Layouts/Navbar";
+import Navbar from "../components/Layouts/Navbar/Navbar";
 
 export default function LoginPage() {
   return (
