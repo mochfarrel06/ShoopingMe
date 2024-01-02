@@ -1,13 +1,19 @@
-import {Disclosure, Menu, Transition} from "@headlessui/react";
-import {
+import * as ReactImports from "./index";
+
+const {
+  Disclosure,
+  Menu,
+  Transition,
   Bars3Icon,
   MagnifyingGlassIcon,
   ShoppingBagIcon,
   ShoppingCartIcon,
   XMarkIcon,
-} from "@heroicons/react/20/solid";
-import {Fragment, useState} from "react";
-import {Link, useNavigate} from "react-router-dom";
+  Fragment,
+  useState,
+  Link,
+  useNavigate,
+} = ReactImports;
 
 export default function NavbarMain({children}) {
   return (

@@ -1,6 +1,5 @@
-import {Disclosure} from "@headlessui/react";
-import {ShoppingCartIcon} from "@heroicons/react/20/solid";
-import {Link} from "react-router-dom";
+import * as ReactImports from "./index";
+const {ShoppingCartIcon, Disclosure, Link} = ReactImports;
 
 export default function NavbarMobile({children}) {
   return (
