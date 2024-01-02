@@ -15,21 +15,20 @@ export default function Navbar() {
   const [username, setUsername] = useState({});
   const [userDetails, setUserDetails] = useState({});
   const totalCart = useTotalCart();
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
-    const usernameString = localStorage.getItem("token");
-    setUsername(usernameString);
+    setUsername(token);
   }, []);
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
     if (token) {
       const userId = getUserIdFromToken(token);
       getUserId(userId, (data) => {
         setUserDetails(data);
       });
     }
-  }, [userDetails]);
+  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
