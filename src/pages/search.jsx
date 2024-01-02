@@ -4,7 +4,7 @@ import SearchSection from "../components/Fragments/SearchSection";
 import {useEffect, useState} from "react";
 import {getProducts} from "../services/products.service";
 import CardProduct from "../components/Fragments/Product/Card/CardProduct";
-import ProductNotFound from "../components/Fragments/ProductNotFound";
+import ProductNotFound from "../components/Fragments/Notfound/ProductNotFound";
 import "react-loading-skeleton/dist/skeleton.css";
 import ProductLoading from "../components/Fragments/Loading/ProductLoading";
 
