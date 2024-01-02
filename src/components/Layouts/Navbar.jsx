@@ -5,6 +5,7 @@ import NavbarMobile from "../Fragments/NavbarMobile";
 import {useTotalCart} from "../../hooks/useTotalCart";
 import useUserData from "../../hooks/useUserData";
 import useLogout from "../../hooks/useLogout";
+import {categories} from "../../utils";
 
 function classNames(...clasess) {
   return clasess.filter(Boolean).join(" ");
@@ -20,14 +21,6 @@ export default function Navbar() {
   useEffect(() => {
     setUsername(token);
   }, []);
-
-  // Kategori
-  const categories = [
-    "electronics",
-    "jewelery",
-    "men's clothing",
-    "women's clothing",
-  ];
 
   return (
     <div className="min-h-full">
