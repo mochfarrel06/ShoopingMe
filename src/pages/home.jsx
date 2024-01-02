@@ -1,6 +1,6 @@
 import {Fragment, useEffect, useRef, useState} from "react";
 import BannerSection from "../components/Fragments/BannerSection";
-import HeroSection from "../components/Fragments/HeroSection";
+import HeroSection from "../components/Fragments/HeroSection/HeroSection";
 import ProductSection from "../components/Fragments/ProductSection";
 import MainLayouts from "../components/Layouts/MainLayouts";
 import {getProductsLimit} from "../services/products.service";
