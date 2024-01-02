@@ -1,5 +1,5 @@
-import Button from "../Elements/Button";
-import InputForm from "../Elements/Input";
+import Button from "../../Elements/Button";
+import InputForm from "../../Elements/Input";
 
 export default function FormRegister() {
   return (

@@ -1,4 +1,4 @@
-import FormLogin from "../components/Fragments/FormLogin";
+import FormLogin from "../components/Fragments/Auth/FormLogin";
 import AuthLayouts from "../components/Layouts/AuthLayouts";
 import Footer from "../components/Layouts/Footer";
 import Navbar from "../components/Layouts/Navbar/Navbar";

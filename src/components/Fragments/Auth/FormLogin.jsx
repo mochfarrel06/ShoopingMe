@@ -1,7 +1,7 @@
 import {useState} from "react";
-import {login} from "../../services/auth.service";
-import Button from "../Elements/Button";
-import InputForm from "../Elements/Input";
+import {login} from "../../../services/auth.service";
+import Button from "../../Elements/Button";
+import InputForm from "../../Elements/Input";
 import {useNavigate} from "react-router-dom";
 
 export default function FormLogin() {
