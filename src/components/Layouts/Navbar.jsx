@@ -5,6 +5,7 @@ import NavbarMobile from "../Fragments/NavbarMobile";
 import {getUserId} from "../../services/user.service";
 import {getUserIdFromToken} from "../../services/auth.service";
 import {useTotalCart} from "../../hooks/useTotalCart";
+import {useNavigate} from "react-router-dom";
 
 function classNames(...clasess) {
   return clasess.filter(Boolean).join(" ");
@@ -32,7 +33,8 @@ export default function Navbar() {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    window.location.href = "/";
+    const navigate = useNavigate();
+    navigate("/");
   };
 
   // Kategori
@@ -53,13 +55,9 @@ export default function Navbar() {
           <>
             <NavbarMain>
               <NavbarMain.NavbarTitle title={"ShoppingMe"} />
-              <NavbarMain.NavbarNavigation
-                categories={categories}
-                classNames={classNames}
-              />
+              <NavbarMain.NavbarNavigation categories={categories} />
               <NavbarMain.NavbarSearch />
               <NavbarMain.NavbarProfile
-                classNames={classNames}
                 onClick={handleLogout}
                 username={username}
                 totalCart={totalCart}

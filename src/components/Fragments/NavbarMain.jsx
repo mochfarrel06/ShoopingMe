@@ -85,7 +85,7 @@ function NavbarSearch() {
   );
 }
 
-function NavbarProfile({classNames, onClick, username, totalCart}) {
+function NavbarProfile({onClick, username, totalCart}) {
   return (
     <div className="hidden lg:block">
       <div className="flex items-center h-full gap-4">
@@ -98,14 +98,15 @@ function NavbarProfile({classNames, onClick, username, totalCart}) {
               <span className="absolute bg-orange-600 w-5 h-5 rounded-full right-0 top-0 text-center text-xs text-white font-medium flex items-center justify-center">
                 {totalCart}
               </span>
-              <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
+              <ShoppingCartIcon className="h-6 w-6" />
             </Link>
 
             <Menu as="div" className="relative">
               <div>
-                <Menu.Button className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                  <span className="absolute -inset-1.5" />
-                  <span className="sr-only">Open user menu</span>
+                <Menu.Button
+                  type="button"
+                  className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                >
                   <img
                     className="h-8 w-8 rounded-full xl:h-10 xl:w-10"
                     src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
@@ -123,31 +124,19 @@ function NavbarProfile({classNames, onClick, username, totalCart}) {
                 leaveTo="transform opacity-0 scale-95"
               >
                 <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none lg:w-56 lg:py-3">
+                  <Link
+                    to="/profile"
+                    className="block bg-white hover:bg-gray-100 px-4 py-2 text-sm text-gray-700 lg:text-base"
+                  >
+                    <Menu.Item>Profile Me</Menu.Item>
+                  </Link>
                   <Menu.Item>
-                    {({active}) => (
-                      <Link
-                        to="/profile"
-                        className={classNames(
-                          active ? "bg-gray-100" : "",
-                          "block px-4 py-2 text-sm text-gray-700 lg:text-base"
-                        )}
-                      >
-                        Profile Me
-                      </Link>
-                    )}
-                  </Menu.Item>
-                  <Menu.Item>
-                    {({active}) => (
-                      <a
-                        onClick={onClick}
-                        className={classNames(
-                          active ? "bg-gray-100" : "",
-                          "block px-4 py-2 text-sm text-gray-700 lg:text-base"
-                        )}
-                      >
-                        Logout
-                      </a>
-                    )}
+                    <Link
+                      onClick={onClick}
+                      className="block bg-white hover:bg-gray-100 px-4 py-2 text-sm text-gray-700 lg:text-base"
+                    >
+                      Logout
+                    </Link>
                   </Menu.Item>
                 </Menu.Items>
               </Transition>
