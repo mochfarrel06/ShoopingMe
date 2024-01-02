@@ -1,12 +1,16 @@
 import {MinusIcon, PlusIcon, TrashIcon} from "@heroicons/react/20/solid";
-import {useEffect, useRef, useState} from "react";
-import {getAllCarts} from "../../../../services/carts.service";
-import {useSelector} from "react-redux";
+import {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
 import {
   useTotalPrice,
   useTotalPriceDispatch,
 } from "../../../../context/TotalPriceContext";
 import {getProducts} from "../../../../services/products.service";
+import {
+  addToCart,
+  removeFromCart,
+  removeProductFromCart,
+} from "../../../../redux/slices/cartSlice";
 
 export default function CartSection() {
   const [products, setProducts] = useState([]);
@@ -14,6 +18,7 @@ export default function CartSection() {
   const cart = useSelector((state) => state.cart.data);
   const dispatch = useTotalPriceDispatch();
   const {total} = useTotalPrice();
+  const dispatchProduct = useDispatch();
 
   // Mengambil data products clothing dari api
   useEffect(() => {
@@ -47,16 +52,6 @@ export default function CartSection() {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
-  const totalPriceRef = useRef(null);
-
-  // useEffect(() => {
-  //   if (cart.length > 0) {
-  //     totalPriceRef.current.style.display = "block";
-  //   } else {
-  //     totalPriceRef.current.style.display = "none";
-  //   }
-  // }, [cart]);
-
   return (
     <div className="py-24 max-[400px]:py-20 sm:py-28 lg:py-28">
       <div className="mx-auto max-w-2xl lg:max-w-7xl">
@@ -77,12 +72,6 @@ export default function CartSection() {
                       key={item.id}
                       className="flex gap-5 items-center px-2 py-4 max-[400px]:items-start lg:gap-10"
                     >
-                      {/* <div className="max-[400px]:mt-10 mt-0">
-                        <input
-                          type="checkbox"
-                          className="w-5 h-5 border-gray-500 max-[400px]:w-4 max-[400px]:h-4"
-                        />
-                      </div> */}
                       <div className="flex gap-5 w-full overflow-hidden justify-between max-[400px]:gap-3 max-[400px]:flex-col max-[400px]:items-center max-[400px]:justify-center lg:gap-8 lg:max-w-md">
                         <div className="h-full w-16 flex-shrink-0 overflow-hidden max-[400px]:w-28 lg:w-24">
                           <img
@@ -100,17 +89,38 @@ export default function CartSection() {
                               $ {product.price}
                             </h3>
                             <div className="flex items-center gap-5 max-[400px]:gap-3">
-                              <button className="py-2">
+                              <button
+                                className="py-2"
+                                onClick={() =>
+                                  dispatchProduct(
+                                    removeProductFromCart({id: item.id})
+                                  )
+                                }
+                              >
                                 <TrashIcon className="w-5 h-5 text-gray-500 max-[400px]:w-4 max-[400px]:h-4" />
                               </button>
                               <div className="flex gap-4 max-[400px]:gap-2 items-center">
-                                <button className="bg-gray-700 w-8 h-8 px-2 py-2 flex items-center justify-center rounded-md max-[400px]:py-1">
+                                <button
+                                  className="bg-gray-700 w-8 h-8 px-2 py-2 flex items-center justify-center rounded-md max-[400px]:py-1"
+                                  onClick={() =>
+                                    dispatchProduct(
+                                      removeFromCart({id: item.id, qty: 1})
+                                    )
+                                  }
+                                >
                                   <MinusIcon className="w-4 h-4 text-white max-[400px]:w-3 max-[400px]:h-3" />
                                 </button>
                                 <span className="text-gray-800 text-base py-2 items-center font-medium max-[400px]:text-sm max-[400px]:py-1">
                                   {item.qty}
                                 </span>
-                                <button className="bg-gray-700 w-8 h-8 px-2 py-2 flex items-center justify-center rounded-md max-[400px]:py-1">
+                                <button
+                                  className="bg-gray-700 w-8 h-8 px-2 py-2 flex items-center justify-center rounded-md max-[400px]:py-1"
+                                  onClick={() =>
+                                    dispatchProduct(
+                                      addToCart({id: item.id, qty: 1})
+                                    )
+                                  }
+                                >
                                   <PlusIcon className="w-4 h-4 text-white text-base max-[400px]:w-3 max-[400px]:h-3" />
                                 </button>
                               </div>
