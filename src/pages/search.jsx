@@ -6,7 +6,7 @@ import {getProducts} from "../services/products.service";
 import CardProduct from "../components/Fragments/Product/Card/CardProduct";
 import ProductNotFound from "../components/Fragments/ProductNotFound";
 import "react-loading-skeleton/dist/skeleton.css";
-import ProductLoading from "../components/Fragments/ProductLoading";
+import ProductLoading from "../components/Fragments/Loading/ProductLoading";
 
 export default function SearchPage() {
   const [products, setProducts] = useState([]);
