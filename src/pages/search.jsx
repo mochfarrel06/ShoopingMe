@@ -1,6 +1,6 @@
 import {useLocation} from "react-router-dom";
 import MainLayouts from "../components/Layouts/MainLayouts";
-import SearchSection from "../components/Fragments/SearchSection";
+import SearchSection from "../components/Fragments/Search/SearchSection";
 import {useEffect, useState} from "react";
 import {getProducts} from "../services/products.service";
 import CardProduct from "../components/Fragments/Product/Card/CardProduct";
