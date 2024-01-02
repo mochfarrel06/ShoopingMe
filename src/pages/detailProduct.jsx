@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import DetailProduct from "../components/Fragments/DetailProduct";
+import DetailProduct from "../components/Fragments/Product/DetailProduct";
 import Footer from "../components/Layouts/Footer";
 import MainLayouts from "../components/Layouts/MainLayouts";
 import Navbar from "../components/Layouts/Navbar/Navbar";
