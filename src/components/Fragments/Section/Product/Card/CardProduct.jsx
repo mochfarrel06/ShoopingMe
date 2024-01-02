@@ -1,7 +1,7 @@
 import {StarIcon} from "@heroicons/react/20/solid";
 import {Link, useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
-import {addToCart} from "../../../../redux/slices/cartSlice";
+import {addToCart} from "../../../../../redux/slices/cartSlice";
 import {useEffect, useState} from "react";
 
 export default function CardProduct({children}) {

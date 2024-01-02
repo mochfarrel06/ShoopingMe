@@ -3,7 +3,7 @@ import {HeartIcon} from "@heroicons/react/24/outline";
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
-import {addToCart} from "../../../redux/slices/cartSlice";
+import {addToCart} from "../../../../redux/slices/cartSlice";
 
 export default function DetailProduct({product, children}) {
   return (

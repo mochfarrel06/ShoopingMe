@@ -1,12 +1,12 @@
 import {MinusIcon, PlusIcon, TrashIcon} from "@heroicons/react/20/solid";
 import {useEffect, useRef, useState} from "react";
-import {getAllCarts} from "../../../services/carts.service";
+import {getAllCarts} from "../../../../services/carts.service";
 import {useSelector} from "react-redux";
 import {
   useTotalPrice,
   useTotalPriceDispatch,
-} from "../../../context/TotalPriceContext";
-import {getProducts} from "../../../services/products.service";
+} from "../../../../context/TotalPriceContext";
+import {getProducts} from "../../../../services/products.service";
 
 export default function CartSection() {
   const [products, setProducts] = useState([]);

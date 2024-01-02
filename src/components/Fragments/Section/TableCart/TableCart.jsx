@@ -3,8 +3,8 @@ import {useSelector} from "react-redux";
 import {
   useTotalPrice,
   useTotalPriceDispatch,
-} from "../../context/TotalPriceContext";
-import {getProducts} from "../../services/products.service";
+} from "../../../../context/TotalPriceContext";
+import {getProducts} from "../../../../services/products.service";
 
 export default function TableCart() {
   const cart = useSelector((state) => state.cart.data);

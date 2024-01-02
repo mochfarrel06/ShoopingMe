@@ -1,5 +1,5 @@
 import {Fragment, useEffect, useState} from "react";
-import ProfileSection from "../components/Fragments/ProfileSection";
+import ProfileSection from "../components/Fragments/Section/Profile/ProfileSection";
 import MainLayouts from "../components/Layouts/MainLayouts";
 import {getUserIdFromToken} from "../services/auth.service";
 import {getUserId} from "../services/user.service";

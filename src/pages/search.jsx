@@ -1,9 +1,9 @@
 import {useLocation} from "react-router-dom";
 import MainLayouts from "../components/Layouts/MainLayouts";
-import SearchSection from "../components/Fragments/Search/SearchSection";
+import SearchSection from "../components/Fragments/Section/Search/SearchSection";
 import {useEffect, useState} from "react";
 import {getProducts} from "../services/products.service";
-import CardProduct from "../components/Fragments/Product/Card/CardProduct";
+import CardProduct from "../components/Fragments/Section/Product/Card/CardProduct";
 import ProductNotFound from "../components/Fragments/Notfound/ProductNotFound";
 import "react-loading-skeleton/dist/skeleton.css";
 import ProductLoading from "../components/Fragments/Loading/ProductLoading";

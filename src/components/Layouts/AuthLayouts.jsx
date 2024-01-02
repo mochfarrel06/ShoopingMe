@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-import ScrollToTop from "../Fragments/ScrollToTop";
+import ScrollToTop from "../Fragments/Loading/ScrollToTop";
 
 export default function AuthLayouts({children, title, description, type}) {
   return (

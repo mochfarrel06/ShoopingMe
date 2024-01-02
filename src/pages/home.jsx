@@ -1,10 +1,10 @@
 import {Fragment, useEffect, useRef, useState} from "react";
-import BannerSection from "../components/Fragments/Banner/BannerSection";
-import HeroSection from "../components/Fragments/HeroSection/HeroSection";
-import ProductSection from "../components/Fragments/Product/ProductSection";
+import BannerSection from "../components/Fragments/Section/Banner/BannerSection";
+import HeroSection from "../components/Fragments/Section/HeroSection/HeroSection";
+import ProductSection from "../components/Fragments/Section/Product/ProductSection";
 import MainLayouts from "../components/Layouts/MainLayouts";
 import {getProductsLimit} from "../services/products.service";
-import CardProduct from "../components/Fragments/Product/Card/CardProduct";
+import CardProduct from "../components/Fragments/Section/Product/Card/CardProduct";
 
 export default function HomePage() {
   const [products, setProducts] = useState([]);
