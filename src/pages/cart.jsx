@@ -1,4 +1,4 @@
-import CartSection from "../components/Fragments/CartSection";
+import CartSection from "../components/Fragments/Cart/CartSection";
 import MainLayouts from "../components/Layouts/MainLayouts";
 import {useLogin} from "../hooks/useLogin";
 
