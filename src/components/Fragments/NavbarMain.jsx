@@ -124,12 +124,14 @@ function NavbarProfile({onClick, username, totalCart}) {
                 leaveTo="transform opacity-0 scale-95"
               >
                 <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none lg:w-56 lg:py-3">
-                  <Link
-                    to="/profile"
-                    className="block bg-white hover:bg-gray-100 px-4 py-2 text-sm text-gray-700 lg:text-base"
-                  >
-                    <Menu.Item>Profile Me</Menu.Item>
-                  </Link>
+                  <Menu.Item>
+                    <Link
+                      to="/profile"
+                      className="block bg-white hover:bg-gray-100 px-4 py-2 text-sm text-gray-700 lg:text-base"
+                    >
+                      Profile Me
+                    </Link>
+                  </Menu.Item>
                   <Menu.Item>
                     <Link
                       onClick={onClick}
@@ -143,14 +145,14 @@ function NavbarProfile({onClick, username, totalCart}) {
             </Menu>
           </>
         ) : (
-          <>
+          <div>
             <Link
               to={"/login"}
               className="block px-3 bg-blue-800 py-2 rounded-md font-medium text-base text-white transition-all duration-150 ease-in-out hover:bg-blue-700 transform hover:scale-105"
             >
               Sign In
             </Link>
-          </>
+          </div>
         )}
       </div>
     </div>
