@@ -3,7 +3,7 @@ import CategorySection from "../components/Fragments/CategorySection";
 import MainLayouts from "../components/Layouts/MainLayouts";
 import {useParams} from "react-router-dom";
 import {getCategoryProducts} from "../services/products.service";
-import CardProduct from "../components/Fragments/CardProduct";
+import CardProduct from "../components/Fragments/Product/Card/CardProduct";
 
 export default function CategoryPage() {
   const [categoryData, setCategoryData] = useState([]);

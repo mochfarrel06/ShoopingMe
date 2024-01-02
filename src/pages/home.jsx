@@ -4,7 +4,7 @@ import HeroSection from "../components/Fragments/HeroSection/HeroSection";
 import ProductSection from "../components/Fragments/Product/ProductSection";
 import MainLayouts from "../components/Layouts/MainLayouts";
 import {getProductsLimit} from "../services/products.service";
-import CardProduct from "../components/Fragments/CardProduct";
+import CardProduct from "../components/Fragments/Product/Card/CardProduct";
 
 export default function HomePage() {
   const [products, setProducts] = useState([]);

@@ -3,7 +3,7 @@ import MainLayouts from "../components/Layouts/MainLayouts";
 import SearchSection from "../components/Fragments/SearchSection";
 import {useEffect, useState} from "react";
 import {getProducts} from "../services/products.service";
-import CardProduct from "../components/Fragments/CardProduct";
+import CardProduct from "../components/Fragments/Product/Card/CardProduct";
 import ProductNotFound from "../components/Fragments/ProductNotFound";
 import "react-loading-skeleton/dist/skeleton.css";
 import ProductLoading from "../components/Fragments/ProductLoading";
