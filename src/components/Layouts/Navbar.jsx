@@ -2,11 +2,9 @@ import {useEffect, useState} from "react";
 import {Disclosure} from "@headlessui/react";
 import NavbarMain from "../Fragments/NavbarMain";
 import NavbarMobile from "../Fragments/NavbarMobile";
-import {getUserId} from "../../services/user.service";
-import {getUserIdFromToken} from "../../services/auth.service";
 import {useTotalCart} from "../../hooks/useTotalCart";
-import {useNavigate} from "react-router-dom";
 import useUserData from "../../hooks/useUserData";
+import useLogout from "../../hooks/useLogout";
 
 function classNames(...clasess) {
   return clasess.filter(Boolean).join(" ");
@@ -14,28 +12,14 @@ function classNames(...clasess) {
 
 export default function Navbar() {
   const [username, setUsername] = useState({});
-  // const [userDetails, setUserDetails] = useState({});
   const totalCart = useTotalCart();
   const token = localStorage.getItem("token");
   const userDetails = useUserData();
+  const handleLogout = useLogout();
 
   useEffect(() => {
     setUsername(token);
   }, []);
-
-  // useEffect(() => {
-  //   if (token) {
-  //     const userId = getUserIdFromToken(token);
-  //     getUserId(userId, (data) => {
-  //       setUserDetails(data);
-  //     });
-  //   }
-  // }, []);
-
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    window.location.href = "/";
-  };
 
   // Kategori
   const categories = [
