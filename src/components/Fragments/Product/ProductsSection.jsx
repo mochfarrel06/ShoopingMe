@@ -1,9 +1,9 @@
 import {Fragment, useEffect, useRef, useState} from "react";
 import {Menu, Transition} from "@headlessui/react";
 import {ChevronDownIcon} from "@heroicons/react/20/solid";
-import CardProduct from "./Product/Card/CardProduct";
-import {getProducts} from "../../services/products.service";
-import TableCart from "./TableCart";
+import CardProduct from "./Card/CardProduct";
+import {getProducts} from "../../../services/products.service";
+import TableCart from "../TableCart";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
