@@ -11,6 +11,7 @@ import {
   removeFromCart,
   removeProductFromCart,
 } from "../../../../redux/slices/cartSlice";
+import {Link} from "react-router-dom";
 
 export default function CartSection() {
   const [products, setProducts] = useState([]);
@@ -158,9 +159,12 @@ export default function CartSection() {
                 </div>
               </div>
               <div className="border-t border-gray-200 py-5">
-                <button className="block w-full py-2 bg-blue-800 rounded-md text-white text-sm font-medium hover:bg-blue-700 max-[400px]:text-xs">
+                <Link
+                  to={"/cartsuccess"}
+                  className="flex items-center justify-center w-full py-2 bg-blue-800 rounded-md text-white text-sm font-medium hover:bg-blue-700 max-[400px]:text-xs"
+                >
                   Beli {totalCart} barang
-                </button>
+                </Link>
               </div>
             </div>
             {/* End total price */}

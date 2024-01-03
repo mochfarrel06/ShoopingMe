@@ -16,6 +16,7 @@ import CategoryPage from "./pages/category.jsx";
 import ProfilePage from "./pages/profile.jsx";
 import {CartCobaPage} from "./pages/cartcoba.jsx";
 import SearchPage from "./pages/search.jsx";
+import CartSuccessPage from "./pages/cartsuccess.jsx";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
   {
     path: "/search",
     element: <SearchPage />,
+  },
+  {
+    path: "/cartsuccess",
+    element: <CartSuccessPage />,
   },
 ]);
 
